@@ -7,7 +7,7 @@ package primerparcialpoo;
 
 /**
  *
- * @author uca
+ * @author Steven Diaz
  */
 public class Habitacion {
     private String Piso;
