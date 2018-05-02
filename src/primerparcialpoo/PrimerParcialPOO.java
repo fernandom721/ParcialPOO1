@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package primerparcialpoo;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +17,46 @@ public class PrimerParcialPOO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("----Hotel Viña Rafinha----");
+        System.out.println("Seleccione una Opción");
+        System.out.println("1) Habitaciones");
+        System.out.println("2) Precios");
+        System.out.println("3) Reservas");
+        System.out.println("4) Salir");
+        int a=input.nextInt();
+        
+        switch(a)
+        {
+            case 1:
+                System.out.println("----Habitaciones----");
+                System.out.println("1) Habilitar/Desabilitar habitaciones");
+                System.out.println("2) Habilitar/Desabilitar pisos");
+                System.out.println("3) Back");
+                int x=input.nextInt();
+                break;
+            case 2:
+                System.out.println("----Precios----");
+                System.out.println("1) Modificar Predio de Habitaciones");
+                System.out.println("2) Modificar Precio de Paquetes");
+                System.out.println("3) Back");
+                int y=input.nextInt();
+                break;
+            case 3:
+                System.out.println("----Reservas----");
+                System.out.println("1) Agregar Reserva");
+                System.out.println("2) Modificarr Reserva");
+                System.out.println("3) Eliminar Reserva");
+                System.out.println("4) Back");
+                int z=input.nextInt();
+                break;
+            case 4:
+                break;
+            
+        }
+        
+        
     }
     
 }
