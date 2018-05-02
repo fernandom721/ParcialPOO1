@@ -24,8 +24,9 @@ public class PrimerParcialPOO {
         System.out.println("1) Habitaciones");
         System.out.println("2) Precios");
         System.out.println("3) Reservas");
-        System.out.println("4) Salir");
-        int a=input.nextInt();
+        System.out.println("4) Administrar");
+        System.out.println("5) Salir");
+        int a = input.nextInt();
         
         switch(a)
         {
@@ -34,14 +35,14 @@ public class PrimerParcialPOO {
                 System.out.println("1) Habilitar/Desabilitar habitaciones");
                 System.out.println("2) Habilitar/Desabilitar pisos");
                 System.out.println("3) Back");
-                int x=input.nextInt();
+                int x = input.nextInt();
                 break;
             case 2:
                 System.out.println("----Precios----");
-                System.out.println("1) Modificar Predio de Habitaciones");
+                System.out.println("1) Modificar Precio de Habitaciones");
                 System.out.println("2) Modificar Precio de Paquetes");
                 System.out.println("3) Back");
-                int y=input.nextInt();
+                int y = input.nextInt();
                 break;
             case 3:
                 System.out.println("----Reservas----");
@@ -49,9 +50,16 @@ public class PrimerParcialPOO {
                 System.out.println("2) Modificarr Reserva");
                 System.out.println("3) Eliminar Reserva");
                 System.out.println("4) Back");
-                int z=input.nextInt();
+                int z = input.nextInt();
                 break;
             case 4:
+                System.out.println("----Administrar----");
+                System.out.println("1) Agregar Habitación");
+                System.out.println("2) Agregar Piso");
+                System.out.println("3) Back");
+                int b = input.nextInt();
+                break;
+            case 5:
                 break;
             
         }
