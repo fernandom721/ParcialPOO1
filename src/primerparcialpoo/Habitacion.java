@@ -5,8 +5,12 @@
  */
 package primerparcialpoo;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
- *
+ *Todos los commit que se realizaron el dia miercoles 2 de abril alrededor de las
+ * 12 horas del mediodia, fueron realizadas por este autor, con el error de
+ * subirlos a nombre de la cuenta uca.
  * @author Steven Diaz
  */
 public class Habitacion {
@@ -15,7 +19,9 @@ public class Habitacion {
     private String TipoDeHabitacion;
     private boolean Disponibilidad;
     private int PrecioDeHabitacion;
-    
+    private ArrayList <String> Priso; 
+    private ArrayList <String> NumeroDEHAbitacion; 
+
     public Habitacion(){}
     
     public Habitacion(String piso, String NumeroDeHabitacion, String TipoDeHabitacion, boolean Disponibilidad, int PrecioDeHabitacion){
@@ -24,6 +30,22 @@ public class Habitacion {
         this.TipoDeHabitacion = TipoDeHabitacion;
         this.Disponibilidad = Disponibilidad;
         this.PrecioDeHabitacion = PrecioDeHabitacion;
+        Priso = new ArrayList<>();
+    }
+    
+
+    
+    public void AgregarPisoInicial(){
+        Priso.add("A");
+        Priso.add("B");
+        Priso.add("C");
+        Priso.add("D");
+        Priso.add("E");
+        Priso.add("F");
+    }
+    
+    public void MostrarPisos(){
+        System.out.println(Priso);
     }
     
     public void setPiso (String piso){
