@@ -33,7 +33,7 @@ public class Paquete {
         return nombrePaquete;
     }
     public void setPaquete(String Paquete) {
-        this.nombrePaquete = nombrePaquete;
+        this.nombrePaquete = Paquete;
     }
     public int getPrecio() {
         return precio;
