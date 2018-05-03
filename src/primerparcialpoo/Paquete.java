@@ -9,6 +9,7 @@ package primerparcialpoo;
  *
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
+
 public class Paquete {
     private String Beneficios, Paquete;
     private int precio;
