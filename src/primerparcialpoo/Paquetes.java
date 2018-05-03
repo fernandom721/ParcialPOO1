@@ -14,6 +14,13 @@ package primerparcialpoo;
 public class Paquetes {
     private String Beneficios, nombrePaquete;
     private int precio;
+    
+    public Paquetes(){
+        
+        this.Beneficios="";
+        this.nombrePaquete="";
+        this.precio=0;
+    }
 
     public Paquetes(String Beneficios, String nombrePaquete, int precio){
         this.Beneficios = Beneficios;
