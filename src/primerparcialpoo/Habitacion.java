@@ -19,8 +19,9 @@ public class Habitacion {
     private String TipoDeHabitacion;
     private boolean Disponibilidad;
     private int PrecioDeHabitacion;
-    ArrayList<String> Priso = new ArrayList<String>();
-    ArrayList<String> NumeroHabitacion = new ArrayList<String>();
+    ArrayList<String> Priso = new ArrayList<>();
+    ArrayList<String> NumeroHabitacion = new ArrayList<>();
+    private String Piso;
 
     public Habitacion(){}
     
