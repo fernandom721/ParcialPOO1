@@ -14,13 +14,13 @@ import java.util.Scanner;
  * @author Steven Diaz
  */
 public class Habitacion {
-    private String Piso;
+
     private String NumeroDeHabitacion;
     private String TipoDeHabitacion;
     private boolean Disponibilidad;
     private int PrecioDeHabitacion;
-    private ArrayList <String> Priso; 
-    private ArrayList <String> NumeroDEHAbitacion; 
+    ArrayList<String> Priso = new ArrayList<String>();
+    ArrayList<String> NumeroHabitacion = new ArrayList<String>();
 
     public Habitacion(){}
     
@@ -30,7 +30,6 @@ public class Habitacion {
         this.TipoDeHabitacion = TipoDeHabitacion;
         this.Disponibilidad = Disponibilidad;
         this.PrecioDeHabitacion = PrecioDeHabitacion;
-        Priso = new ArrayList<>();
     }
     
 
@@ -45,8 +44,17 @@ public class Habitacion {
     }
     
     public void MostrarPisos(){
-        System.out.println(Priso);
+        for(int i = 0; i < Priso.size(); i++) {
+        System.out.println(Priso.get(i));
+        
+        }
     }
+    
+//    public void asignarTipo(){
+//        if ()
+//    }
+//    
+//    
     
     public void setPiso (String piso){
         this.Piso = piso;
