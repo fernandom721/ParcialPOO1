@@ -6,18 +6,20 @@
 
 package primerparcialpoo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Rodrigo Cruz <00115417@uca.edu.sv>
  */
 
 public class Paquete {
-    private String Beneficios, Paquete;
+    private String Beneficios, nombrePaquete;
     private int precio;
 
-    public Paquete(String Beneficios, String Paquete, int precio){
+    public Paquete(String Beneficios, String nombrePaquete, int precio){
         this.Beneficios = Beneficios;
-        this.Paquete = Paquete;
+        this.nombrePaquete = nombrePaquete;
         this.precio = precio;
     }
 
@@ -28,10 +30,10 @@ public class Paquete {
         this.Beneficios = Beneficios;
     }
     public String getPaquete() {
-        return Paquete;
+        return nombrePaquete;
     }
     public void setPaquete(String Paquete) {
-        this.Paquete = Paquete;
+        this.nombrePaquete = nombrePaquete;
     }
     public int getPrecio() {
         return precio;
@@ -39,8 +41,31 @@ public class Paquete {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    public void TipoPaquete(String Paquete, int precio){
-           
-    }
+    //Lista que nos servirá para añadir un nuevo paquete.
+    ArrayList<Paquete> addPaquete = new ArrayList<Paquete>();
+    
+    //Clases de tipo de paquete
+    private static class Premium {
+        private String habitacion, nombre;
+        private int precioT;
 
+        public Premium(String nombre, String habitacion, int precioT) {
+            this.habitacion = habitacion;
+            this.nombre = nombre;
+            this.precioT = precioT;
+        }
+    }
+    private static class Basic {
+        private String habitacion, nombre;
+        private int precioT;
+
+        public Basic(String nombre, String habitacion, int precioT) {
+            this.habitacion = habitacion;
+            this.nombre = nombre;
+            this.precioT = precioT;
+        }
+    }
+ // Listas que guardarán los clientes que hayan adquirido uno de los tipos de paquete.
+    ArrayList<Premium> clientesP = new ArrayList<Premium>();
+    ArrayList<Basic> clientesB = new ArrayList<Basic>(); 
 }
