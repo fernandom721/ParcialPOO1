@@ -19,7 +19,7 @@ public class Habitacion {
     private String TipoDeHabitacion;
     private boolean Disponibilidad;
     private int PrecioDeHabitacion;
-    ArrayList<String> Priso = new ArrayList<>();
+    ArrayList<String> Piso = new ArrayList<>();
     ArrayList<String> NumeroHabitacion = new ArrayList<>();
     private String Piso;
 
