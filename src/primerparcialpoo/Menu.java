@@ -270,7 +270,8 @@ public class Menu {
                 System.out.println("----Administrar----");
                 System.out.println("1) Agregar Habitación");
                 System.out.println("2) Agregar Piso");
-                System.out.println("3) Back");
+                System.out.println("3) Agregar Paquete");
+                System.out.println("4) Back");
                 int z = input.nextInt();
                 switch(z)
                 {
@@ -300,6 +301,25 @@ public class Menu {
                         Piso.MostrarPisos();
                         break;
                     case 3:
+                        //Definiendo en nombre
+                        ArrayList<String> nombrePaquete = new ArrayList<String>();
+                        System.out.println("Escriba el nombre del nuevo paquete a agregar: ");
+                        String salto = input.nextLine();
+                        String e = input.nextLine();
+                        nombrePaquete.add(e);
+                        
+                        for(int q=0; q<nombrePaquete.size();q++){
+                            System.out.println("Se ha guardado el nombre: " + nombrePaquete.get(q));
+                        }
+                        //Definiendo el precio
+                        ArrayList<Integer> precio = new ArrayList<Integer>();
+                        System.out.println("Escriba el precio: ");       
+                        int p = input.nextInt();
+                        for(int i=0; i<500; i++){
+                            precio.add(p);
+                        }
+                        System.out.println("Se ha guardado el precio: $" + precio.get(p));
+                    case 4:
                         menu_inicio();
                         int b = input.nextInt();
                         menus_secundarios(b);
