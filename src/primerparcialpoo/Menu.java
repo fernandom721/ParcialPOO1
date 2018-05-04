@@ -32,7 +32,6 @@ public class Menu {
         
     }
     public static void menu_inicio () {
-        
         System.out.println("----Hotel Viña Rafinha----");
         System.out.println("Seleccione una Opción");
         System.out.println("1) Habitaciones");
@@ -44,7 +43,6 @@ public class Menu {
     
     public static void menus_secundarios(int a)
     {
-        
         Scanner input = new Scanner(System.in);
         switch(a)
         {
