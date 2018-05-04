@@ -74,6 +74,7 @@ public class Habitacion {
     
     
     public void Disponibilidad(){
+        boolean reservacion = false;
         if (reservacion == true){
             if (Disponibilidad == true){
                 Disponibilidad = false;
