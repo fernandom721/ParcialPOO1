@@ -123,12 +123,22 @@ public class Menu {
                                 int ndias = input.nextInt();
                                 //agregar reservacion
                                 System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
+                                System.out.print("Su total a pagar es de :");
+                                //mostrar precio final
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
                             }
                             else
                             {
                                 // agregar reservacion
                             }
                             System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                            System.out.print("Su total a pagar es de :");
+                                //mostrar precio final
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
                             
                         }
                         else
@@ -152,6 +162,8 @@ public class Menu {
                                 int ndias = input.nextInt();
                                 //agregar reservacion
                                 System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                                System.out.print("Su total a pagar es de :");
+                                //mostrar precio final
                                 menu_inicio();
                                 int b = input.nextInt();
                                 menus_secundarios(b);
