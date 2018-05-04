@@ -6,6 +6,7 @@
 package primerparcialpoo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 /**
  *Todos los commit que se realizaron el dia miercoles 2 de abril alrededor de las
@@ -21,6 +22,7 @@ public class Habitacion {
     private int PrecioDeHabitacion;
     ArrayList<String> Piso = new ArrayList<>();
     ArrayList<String> NumeroHabitacion = new ArrayList<>();
+
     String [] PisosExtras = {"G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
 
     public Habitacion(){}
@@ -36,22 +38,13 @@ public class Habitacion {
     
     
     public void AgregarPisoInicial(){
-        Piso.add("A");
-        Piso.add("B");
-        Piso.add("C");
-        Piso.add("D");
-        Piso.add("E");
         Piso.add("F");
+        Piso.add("E");
+        Piso.add("D");
+        Piso.add("C");
+        Piso.add("B");
+        Piso.add("A");
     }
-/**    public void agregarPiso(){
-        System.out.println("Ingrese las cantidades de Pisos a agregar:");
-        Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
-        for (int i = 0; i < a; i++){
-         
-        }
-    }
-    */
     
     public void recibirNuevoPiso() {
         System.out.println("Ingrese las cantidades de Pisos a agregar:");
@@ -59,29 +52,39 @@ public class Habitacion {
         int a = input.nextInt();
         switch (a){
             case 1:
-                Piso.add("H");
+                Iterator<String> it = Piso.iterator();
+                while(it.hasNext()){
+                    System.out.println(it.next());
+                }
+                Piso.add("G");
+                MostrarPisos();
                 break;
             case 2:
+                int cantElementos = Piso.size();
                 Piso.add("H");
-                Piso.add("I");
+                Piso.add("G");
+                MostrarPisos();
                 break;
             case 3:
-                Piso.add("H");
                 Piso.add("I");
-                Piso.add("J");
+                Piso.add("H");
+                Piso.add("G");
+                MostrarPisos();
                 break;
             case 4:
-                Piso.add("H");
+                Piso.add("J");
                 Piso.add("I");
-                Piso.add("J");
-                Piso.add("J");
+                Piso.add("H");
+                Piso.add("G");
+                MostrarPisos();
                 break;
             case 5:
-                Piso.add("H");
-                Piso.add("I");
-                Piso.add("J");
                 Piso.add("K");
-                Piso.add("L");
+                Piso.add("J");
+                Piso.add("I");
+                Piso.add("H");
+                Piso.add("G");
+                MostrarPisos();
                 break;
             case 6:
                 break;
@@ -107,13 +110,13 @@ public class Habitacion {
     
     public void MostrarPisos(){
         for(int i = 0; i < Piso.size(); i++) {
-        System.out.println(Piso.get(i));
+            System.out.println(Piso.get(i));
         
         }
     }
     
-
     
+  
     public void MostrarNumeroHabitacion(){
         for(int i = 0; i < Piso.size(); i++) {
         System.out.println(Piso.get(i));
@@ -139,7 +142,7 @@ public class Habitacion {
                 Disponibilidad = false;
             }
             else {
-            Disponibilidad = true;
+            Disponibilidad = false;
             }
         }
         
