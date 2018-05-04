@@ -45,6 +45,7 @@ public class Habitacion {
         Piso.add("B");
         Piso.add("A");
     }
+    */
     
     public void recibirNuevoPiso() {
         System.out.println("Ingrese las cantidades de Pisos a agregar:");
