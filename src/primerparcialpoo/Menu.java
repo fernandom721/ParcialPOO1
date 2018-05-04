@@ -131,11 +131,13 @@ public class Menu {
                 switch(y)
                 {
                     case 1:
+                        Scanner teclado=new Scanner(System.in);
+                        String dui;
                         System.out.print("Ingrese nombre de Cliente: ");
                         String salto = input.nextLine();
                         String nombre = input.nextLine();
                         System.out.print("Ingrese DUI del Cliente: ");
-                        int dui = input.nextInt();
+                        dui=teclado.nextLine();
                         System.out.print("Forma de Pago del Cliente(Tarjeta o Efectivo): ");
                         String pago = input.next();
                         Cliente cliente = new Cliente();
