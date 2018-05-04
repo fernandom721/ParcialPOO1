@@ -24,7 +24,7 @@ public class Habitacion {
 
     public Habitacion(){}
     
-    public Habitacion(String TipoDeHabitacion, boolean Disponibilidad, int PrecioDeHabitacion){
+    public Habitacion(String TipoDeHabitacion, boolean Disponibilidad, int PrecioDeHabitacion){ 
         this.TipoDeHabitacion = TipoDeHabitacion;
         this.Disponibilidad = Disponibilidad;
         this.PrecioDeHabitacion = PrecioDeHabitacion;
@@ -75,10 +75,12 @@ public class Habitacion {
     
     public void Disponibilidad(){
         if (reservacion == true){
-            Disponibilidad = false;
-        }
-        else {
+            if (Disponibilidad == true){
+                Disponibilidad = false;
+            }
+            else {
             Disponibilidad = true;
+            }
         }
     }
     
