@@ -122,7 +122,7 @@ public class Menu {
                                 System.out.print("Seleccione los días que desea reservar:");
                                 int ndias = input.nextInt();
                                 //agregar reservacion
-                                System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                                System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
                             }
                             else
                             {
