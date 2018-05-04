@@ -13,6 +13,8 @@ public class Reservacion {
     private String Fecha;
     private int CantidadDeHabitaciones;
     private float TotalAPagar;
+    private boolean Reservacion;
+
     private String Inf_huesped;
     private int dias_reservados;
     private String Numero_habitacion;

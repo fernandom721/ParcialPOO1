@@ -76,7 +76,7 @@ public class Menu {
             case 3:
                 System.out.println("----Reservas----");
                 System.out.println("1) Agregar Reserva");
-                System.out.println("2) Modificarr Reserva");
+                System.out.println("2) Modificar Reserva");
                 System.out.println("3) Eliminar Reserva");
                 System.out.println("4) Mostrar Reservaciones");
                 System.out.println("5) Back");
@@ -215,6 +215,10 @@ public class Menu {
                 int z = input.nextInt();
                 switch(z)
                 {
+                    case 2:
+                        Habitacion Piso = new Habitacion();
+                        Piso.AgregarPisoInicial();
+                        Piso.MostrarPisos();
                     case 3:
                         menu_inicio();
                         int b = input.nextInt();

@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Habitacion {
 
-    private String NumeroDeHabitacion;
+    private int NumeroDeHabitacion;
     private String TipoDeHabitacion;
     private boolean Disponibilidad;
     private int PrecioDeHabitacion;
@@ -25,50 +25,72 @@ public class Habitacion {
 
     public Habitacion(){}
     
-    public Habitacion(String piso, String NumeroDeHabitacion, String TipoDeHabitacion, boolean Disponibilidad, int PrecioDeHabitacion){
-        this.Piso = piso;
+    public Habitacion(String TipoDeHabitacion, boolean Disponibilidad, int PrecioDeHabitacion){
         this.NumeroDeHabitacion = NumeroDeHabitacion;
         this.TipoDeHabitacion = TipoDeHabitacion;
         this.Disponibilidad = Disponibilidad;
         this.PrecioDeHabitacion = PrecioDeHabitacion;
     }
     
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     
     public void AgregarPisoInicial(){
-        Priso.add("A");
-        Priso.add("B");
-        Priso.add("C");
-        Priso.add("D");
-        Priso.add("E");
-        Priso.add("F");
+        Piso.add("A");
+        Piso.add("B");
+        Piso.add("C");
+        Piso.add("D");
+        Piso.add("E");
+        Piso.add("F");
+    }
+    
+    public void recibirNuevaHabitacion() {
+        
     }
     
     public void MostrarPisos(){
-        for(int i = 0; i < Priso.size(); i++) {
-        System.out.println(Priso.get(i));
+        for(int i = 0; i < Piso.size(); i++) {
+        System.out.println(Piso.get(i));
         
         }
     }
     
-//    public void asignarTipo(){
-//        if ()
-//    }
-//    
-//    
+
     
-    public void setPiso (String piso){
-        this.Piso = piso;
+    public void MostrarNumeroHabitacion(){
+        for(int i = 0; i < Piso.size(); i++) {
+        System.out.println(Piso.get(i));
+        
+        }
     }
     
-    public String getPiso (){
-        return Piso;
+    public void asignarTipoHabitacion(){
+        if (NumeroDeHabitacion%2 ==0){
+            TipoDeHabitacion = "Doble";
+        }
+        else {
+            TipoDeHabitacion = "Simple";
+        }
     }
-    public void setNumeroDeHabitacion (String NumeroDeHabitacion){
+    
+    
+    public void Disponibilidad(){
+        if (reservacion == true){
+            Disponibilidad = false;
+        }
+        else {
+            Disponibilidad = true;
+        }
+    }
+    
+    
+
+    public void setNumeroDeHabitacion (int NumeroDeHabitacion){
         this.NumeroDeHabitacion = NumeroDeHabitacion;
     }
     
-    public String getNumeroDeHabitacion (){
+    public int getNumeroDeHabitacion (){
         return NumeroDeHabitacion;
     }
     public void setTipoDeHabitacion (String TipoDeHabitacion){
