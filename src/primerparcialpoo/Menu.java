@@ -83,20 +83,20 @@ public class Menu {
                         System.out.println("1) Modificar Paquete Basico");
                         System.out.println("2) Modificar Paquete Premium");
                         System.out.println("3) Back");
-                        int saltar = input.nextInt();
+                        Paquetes paquete = new Paquetes ();
                         int TipoDePaquete = input.nextInt();
                         switch (TipoDePaquete){
                             case 1:
                                 System.out.println("Ingrese nuevo precio de Paquete");
-                                int saltoPaquete = input.nextInt();
                                 int PrecioPaqueteBasico = input.nextInt();
-                                
-                                
+                                paquete.setPrecio(PrecioPaqueteBasico);
+                                System.out.println("El nuevo precio del paquete Basico en dolares es de :" + paquete.getPrecio());
                                 break;
                             case 2:
                                 System.out.println("Ingrese nuevo precio de Paquete");
-                                int saltarPaquete = input.nextInt();
                                 int PrecioPaquetePremium = input.nextInt();
+                                paquete.setPrecio(PrecioPaquetePremium);
+                                System.out.println("El nuevo precio del paquete Premium en dolares es de :" + paquete.getPrecio());
                                 
                                 
                                 break;
@@ -286,19 +286,36 @@ public class Menu {
                         PISO.add("D");
                         PISO.add("F");
                         PISO.add("G");
-                        PISO.add("H");
                         
-                      int size=PISO.size();
+                        int size=PISO.size();
                    
-                      for(int i=0; i<PISO.size(); i++) {
-                        System.out.println(PISO.get(i));
-                      }
-                    break;    
-                        
+                        for(int i=0; i<PISO.size(); i++) {
+                            System.out.println(PISO.get(i));
+                        }
+                      
                     case 2:
                         Habitacion Piso = new Habitacion();
                         Piso.AgregarPisoInicial();
                         Piso.MostrarPisos();
+                        
+                        System.out.println("Agregar piso extra?");
+                        System.out.println("1) Si");
+                        System.out.println("2) No");
+                        int s = input.nextInt();
+                        switch(s){
+                            case 1:
+                                Habitacion habitacion = new Habitacion();
+                                habitacion.recibirNuevoPiso();
+                                Piso.MostrarPisos();
+//                                for(int i = 0; i < Piso.size(); i++) 
+//                                    System.out.println(Piso.get(i));
+                                break;
+                            case 2:
+                                break;
+                            default:
+                                break;
+                        }
+                        
                         break;
                     case 3:
                         //Definiendo en nombre
