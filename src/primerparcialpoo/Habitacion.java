@@ -43,15 +43,15 @@ public class Habitacion {
         Piso.add("E");
         Piso.add("F");
     }
-    public void agregarPiso(){
+/**    public void agregarPiso(){
         System.out.println("Ingrese las cantidades de Pisos a agregar:");
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
         for (int i = 0; i < a; i++){
          
-             
         }
     }
+    */
     
     public void recibirNuevoPiso() {
         System.out.println("Ingrese las cantidades de Pisos a agregar:");
@@ -131,8 +131,9 @@ public class Habitacion {
     }
     
     
-    public void Disponibilidad(){
+    public void Disponibilidad(String piso){
         boolean reservacion = true;
+        
         if (reservacion == true){
             if (Disponibilidad == true){
                 Disponibilidad = false;
@@ -141,6 +142,7 @@ public class Habitacion {
             Disponibilidad = true;
             }
         }
+        
     }
     
 

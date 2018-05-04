@@ -56,6 +56,16 @@ public class Menu {
                 int w = input.nextInt();
                 switch (w)
                 {
+                    case 1:
+                        System.out.println("1) Habilitar/Desabilitar habitaciones");
+                        String piso = input.nextLine();
+                        Habitacion habitacion = new Habitacion();
+                        habitacion.Disponibilidad(piso);
+                       case 2:
+                        System.out.println("1) Habilitar/Desabilitar pisos");
+                        
+                    case 3:
+                        System.out.println("1) Mostrar habitaciones");
                     case 4:
                         menu_inicio();
                         int b = input.nextInt();
@@ -298,7 +308,6 @@ public class Menu {
                     case 2:
                         Habitacion Piso = new Habitacion();
                         Piso.AgregarPisoInicial();
-                        Piso.MostrarPisos();
                         
                         System.out.println("Agregar piso extra?");
                         System.out.println("1) Si");
@@ -308,13 +317,18 @@ public class Menu {
                             case 1:
                                 Habitacion habitacion = new Habitacion();
                                 habitacion.recibirNuevoPiso();
-                                Piso.MostrarPisos();
-//                                for(int i = 0; i < Piso.size(); i++) 
-//                                    System.out.println(Piso.get(i));
+                                System.out.println("Los pisos actuales son");
+//                                Piso.MostrarPisos();
                                 break;
                             case 2:
+                                System.out.println("Los pisos actuales son");
+                                Piso.MostrarPisos();
                                 break;
                             default:
+                                System.out.println("No ha seleccionado una opcion valida");
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
                                 break;
                         }
                         
