@@ -280,60 +280,41 @@ public class Menu {
                 break;
             case 4:
                 System.out.println("----Administrar----");
-                System.out.println("1) Agregar Habitación");
-                System.out.println("2) Agregar Piso");
-                System.out.println("3) Agregar Paquete");
-                System.out.println("4) Back");
+                System.out.println("1) Inicializar Valores");
+                System.out.println("2) Agregar Paquete");
+                System.out.println("3) Back");
                 int z = input.nextInt();
                 switch(z)
                 {
                     case 1:
-                        ArrayList<String> PISO = new ArrayList<>();
-                        
-                        ArrayList<String>  Habitacion= new ArrayList<>();
-                        System.out.println("Agregar piso (Habitación)");
-                        PISO.add("A");
-                        PISO.add("B");
-                        PISO.add("C");
-                        PISO.add("D");
-                        PISO.add("F");
-                        PISO.add("G");
-                        
-                        int size=PISO.size();
-                   
-                        for(int i=0; i<PISO.size(); i++) {
-                            System.out.println(PISO.get(i));
-                        }
-                      
-                    case 2:
                         Habitacion Piso = new Habitacion();
-                        Piso.AgregarPisoInicial();
+///////////////////////////////////////AGREGAR PISOS///////////////////////                        
+                        System.out.println("Seleccione la cantidad inicial de pisos, con un minimo de 6 y un maximo de 15:");
+                        int AgPiso = input.nextInt();
                         
-                        System.out.println("Agregar piso extra?");
-                        System.out.println("1) Si");
-                        System.out.println("2) No");
-                        int s = input.nextInt();
-                        switch(s){
-                            case 1:
-                                Habitacion habitacion = new Habitacion();
-                                habitacion.recibirNuevoPiso();
-                                System.out.println("Los pisos actuales son");
-//                                Piso.MostrarPisos();
-                                break;
-                            case 2:
-                                System.out.println("Los pisos actuales son");
-                                Piso.MostrarPisos();
-                                break;
-                            default:
-                                System.out.println("No ha seleccionado una opcion valida");
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
-                                break;
+                        while (AgPiso < 6  || AgPiso > 15){
+                            System.out.println("Coloque una opcion valida porfavor");
+                            AgPiso = input.nextInt();
                         }
+                        
+                        Piso.AgregarPisoInicial(AgPiso);
+                        System.out.println("Estos son los pisos obtenidos:");
+                        Piso.MostrarPisos();
+//////////////////////////////////AGREGAR HABITACIONES///////////////////////////                        
+                        System.out.println("Seleccione la cantidad inicial de habitaciones, con un minimo de 10 y un maximo de 20:");
+                        int AgCantHabitaciones = input.nextInt();
+                        
+                        while (AgCantHabitaciones < 10  || AgCantHabitaciones > 20){
+                            System.out.println("Coloque una opcion valida porfavor");
+                            AgPiso = input.nextInt();
+                        }
+                        
+                        Piso.AgregarHabitaciones(AgCantHabitaciones);
+                        System.out.println("Estos son los numeros de  habitacion obtenidos:");
+                        Piso.MostrarNumeroHabitacion();
                         
                         break;
-                    case 3:
+                    case 2:
                         //Definiendo en nombre
 
                         System.out.println("Escriba el nombre del nuevo paquete a agregar: ");
@@ -352,7 +333,7 @@ public class Menu {
                             precio.add(p);
                         }
                         System.out.println("Se ha guardado el precio: $" + precio.get(p));
-                    case 4:
+                    case 3:
                         menu_inicio();
                         int b = input.nextInt();
                         menus_secundarios(b);
