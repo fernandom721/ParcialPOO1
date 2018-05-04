@@ -23,7 +23,7 @@ public class Habitacion {
     ArrayList<String> Piso = new ArrayList<>();
     ArrayList<String> NumeroHabitacion = new ArrayList<>();
 
-    String [] PisosExtras = {"G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+    int [] CantHabitaciones = new int[20];
 
     public Habitacion(){}
     
@@ -36,76 +36,141 @@ public class Habitacion {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    
-    public void AgregarPisoInicial(){
-        Piso.add("F");
-        Piso.add("E");
-        Piso.add("D");
-        Piso.add("C");
-        Piso.add("B");
-        Piso.add("A");
-    }
-    
-    public void recibirNuevoPiso() {
-        System.out.println("Ingrese las cantidades de Pisos a agregar:");
-        Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
-        switch (a){
-            case 1:
-                Iterator<String> it = Piso.iterator();
-                while(it.hasNext()){
-                    System.out.println(it.next());
-                }
-                Piso.add("G");
-                MostrarPisos();
-                break;
-            case 2:
-                int cantElementos = Piso.size();
-                Piso.add("H");
-                Piso.add("G");
-                MostrarPisos();
-                break;
-            case 3:
-                Piso.add("I");
-                Piso.add("H");
-                Piso.add("G");
-                MostrarPisos();
-                break;
-            case 4:
-                Piso.add("J");
-                Piso.add("I");
-                Piso.add("H");
-                Piso.add("G");
-                MostrarPisos();
-                break;
-            case 5:
-                Piso.add("K");
-                Piso.add("J");
-                Piso.add("I");
-                Piso.add("H");
-                Piso.add("G");
-                MostrarPisos();
-                break;
+    public void AgregarPisoInicial(int Cant){
+        switch(Cant){
             case 6:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("F");
+                Piso.add("G");
                 break;
             case 7:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
                 break;
             case 8:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
                 break;
             case 9:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
                 break;
             case 10:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
                 break;
-            default:
-                System.out.println("Por favor ingrese una cantidad valida");
-                recibirNuevoPiso();
+            case 11:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
+                Piso.add("K");
+                break;
+            case 12:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
+                Piso.add("K");
+                Piso.add("L");
+                break;
+            case 13:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
+                Piso.add("K");
+                Piso.add("L");
+                Piso.add("M");
+                break;
+            case 14:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
+                Piso.add("K");
+                Piso.add("L");
+                Piso.add("M");
+                Piso.add("N");
+                break;
+            case 15:
+                Piso.add("A");
+                Piso.add("B");
+                Piso.add("C");
+                Piso.add("D");
+                Piso.add("E");
+                Piso.add("F");
+                Piso.add("G");
+                Piso.add("H");
+                Piso.add("I");
+                Piso.add("J");
+                Piso.add("K");
+                Piso.add("L");
+                Piso.add("M");
+                Piso.add("N");
+                Piso.add("O");
                 break;
         }
+        
     }
-    public void recibirNuevaHabitacion() {
-        System.out.println("Ingrese las cantidades de habitacines a agregar:");
-        Scanner input = new Scanner(System.in);
-        int a = input.nextInt();
+    
+    public void AgregarHabitaciones(int Cant){
+        for (int i = 0; i < Cant; i++){
+            CantHabitaciones[i]=i+1;
+        }
     }
     
     public void MostrarPisos(){
@@ -115,12 +180,13 @@ public class Habitacion {
         }
     }
     
-    
-  
     public void MostrarNumeroHabitacion(){
-        for(int i = 0; i < Piso.size(); i++) {
-        System.out.println(Piso.get(i));
-        
+        int i = 0;
+        while (i < CantHabitaciones.length){
+            if(CantHabitaciones[i] != 0){
+                System.out.println(CantHabitaciones[i]);
+            }
+            i++;
         }
     }
     

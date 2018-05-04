@@ -6,6 +6,7 @@
 package primerparcialpoo;
 import java.util.Scanner;
 import java.util.ArrayList;
+import primerparcialpoo.Paquetes;
 /**
  *
  * @author Fernando Martínez
@@ -31,7 +32,6 @@ public class Menu {
         
     }
     public static void menu_inicio () {
-        
         System.out.println("----Hotel Viña Rafinha----");
         System.out.println("Seleccione una Opción");
         System.out.println("1) Habitaciones");
@@ -43,7 +43,6 @@ public class Menu {
     
     public static void menus_secundarios(int a)
     {
-        
         Scanner input = new Scanner(System.in);
         switch(a)
         {
@@ -138,6 +137,7 @@ public class Menu {
                 System.out.println("4) Mostrar Reservaciones");
                 System.out.println("5) Back");
                 int y = input.nextInt();
+                ArrayList<Cliente> listadoClientes = new ArrayList<>();
                 switch(y)
                 {
                     case 1:
@@ -335,17 +335,17 @@ public class Menu {
                         break;
                     case 3:
                         //Definiendo en nombre
-                        ArrayList<String> nombrePaquete = new ArrayList<String>();
+
                         System.out.println("Escriba el nombre del nuevo paquete a agregar: ");
                         String salto = input.nextLine();
-                        String e = input.nextLine();
-                        nombrePaquete.add(e);
+                        //String e = input.nextLine();
                         
+                        /*
                         for(int q=0; q<nombrePaquete.size();q++){
                             System.out.println("Se ha guardado el nombre: " + nombrePaquete.get(q));
-                        }
+                        }*/
                         //Definiendo el precio
-                        ArrayList<Integer> precio = new ArrayList<Integer>();
+                        ArrayList<Integer> precio = new ArrayList<>();
                         System.out.println("Escriba el precio: ");       
                         int p = input.nextInt();
                         for(int i=0; i<500; i++){
@@ -362,7 +362,7 @@ public class Menu {
             case 5:
                 break;
             default:
-                System.out.println("ERROR!!! Esa opcion no esta disponible \n \n");
+                System.err.println("ERROR!!! Esa opcion no esta disponible \n \n");
                 menu_inicio();
                 int b = input.nextInt();
                 menus_secundarios(b);
