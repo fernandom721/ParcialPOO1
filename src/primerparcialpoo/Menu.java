@@ -71,6 +71,49 @@ public class Menu {
                 int x = input.nextInt();
                 switch (x)
                 {
+                    case 1:
+                        System.out.println("Ingrese nuevo precio de habitacion");
+                        int salto = input.nextInt();
+                        int PrecioDeHabitacion = input.nextInt();
+                        
+                        break;
+                    
+                    case 2:
+                        System.out.println("Ingrese paquete a modificar precio");
+                        System.out.println("1) Modificar Paquete Basico");
+                        System.out.println("2) Modificar Paquete Premium");
+                        System.out.println("3) Back");
+                        int saltar = input.nextInt();
+                        int TipoDePaquete = input.nextInt();
+                        switch (TipoDePaquete){
+                            case 1:
+                                System.out.println("Ingrese nuevo precio de Paquete");
+                                int saltoPaquete = input.nextInt();
+                                int PrecioPaqueteBasico = input.nextInt();
+                                
+                                
+                                break;
+                            case 2:
+                                System.out.println("Ingrese nuevo precio de Paquete");
+                                int saltarPaquete = input.nextInt();
+                                int PrecioPaquetePremium = input.nextInt();
+                                
+                                
+                                break;
+                            case 3:
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
+                                break;
+                                
+                            default:
+                                System.out.println("Ingrese un dato valido");
+                                menu_inicio();
+                                int s = input.nextInt();
+                                menus_secundarios(s);
+                                break;
+                        }
+                        
                     case 3:
                         menu_inicio();
                         int b = input.nextInt();
@@ -249,16 +292,18 @@ public class Menu {
                       for(int i=0; i<PISO.size(); i++) {
                         System.out.println(PISO.get(i));
                       }
-                        
+                    break;    
                         
                     case 2:
                         Habitacion Piso = new Habitacion();
                         Piso.AgregarPisoInicial();
                         Piso.MostrarPisos();
+                        break;
                     case 3:
                         menu_inicio();
                         int b = input.nextInt();
                         menus_secundarios(b);
+                        break;
                 }
                 break;
             case 5:
