@@ -5,7 +5,7 @@
  */
 package primerparcialpoo;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 /**
  *
  * @author Fernando Martínez
@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Menu {
     
     
-
+    
     /**
      * @param args the command line arguments
      */
@@ -25,7 +25,10 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
         menus_secundarios(a);
-           
+        ArrayList<String> habitaciones;
+        ArrayList<String> Piso = new ArrayList<>();
+        ArrayList<String>  Habitacion= new ArrayList<>();
+        
     }
     public static void menu_inicio () {
         
@@ -40,6 +43,7 @@ public class Menu {
     
     public static void menus_secundarios(int a)
     {
+        
         Scanner input = new Scanner(System.in);
         switch(a)
         {
@@ -227,6 +231,26 @@ public class Menu {
                 int z = input.nextInt();
                 switch(z)
                 {
+                    case 1:
+                        ArrayList<String> PISO = new ArrayList<>();
+                        
+                        ArrayList<String>  Habitacion= new ArrayList<>();
+                        System.out.println("Agregar piso (Habitación)");
+                        PISO.add("A");
+                        PISO.add("B");
+                        PISO.add("C");
+                        PISO.add("D");
+                        PISO.add("F");
+                        PISO.add("G");
+                        PISO.add("H");
+                        
+                      int size=PISO.size();
+                   
+                      for(int i=0; i<PISO.size(); i++) {
+                        System.out.println(PISO.get(i));
+                      }
+                        
+                        
                     case 2:
                         Habitacion Piso = new Habitacion();
                         Piso.AgregarPisoInicial();
