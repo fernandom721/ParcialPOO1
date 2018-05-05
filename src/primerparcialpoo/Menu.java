@@ -315,24 +315,30 @@ public class Menu {
                         
                         break;
                     case 2:
-                        //Definiendo en nombre
-
-                        System.out.println("Escriba el nombre del nuevo paquete a agregar: ");
-                        String salto = input.nextLine();
-                        //String e = input.nextLine();
+                        ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
                         
-                        /*
-                        for(int q=0; q<nombrePaquete.size();q++){
-                            System.out.println("Se ha guardado el nombre: " + nombrePaquete.get(q));
-                        }*/
-                        //Definiendo el precio
-                        ArrayList<Integer> precio = new ArrayList<>();
-                        System.out.println("Escriba el precio: ");       
-                        int p = input.nextInt();
-                        for(int i=0; i<500; i++){
-                            precio.add(p);
+                        listaPaquetes.add(new Paquetes("Acceso a buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar y acceso a internet ilimitado","Premium",150));
+                        listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado","Básico",10));
+                        System.out.println("Escriba el nombre del nuevo paquete: ");
+                        String name = input.next();
+                        System.out.println("Escriba los beneficios del paquete "+name+": ");
+                        String saltin = input.nextLine();
+                        String benefits = input.nextLine();
+                        System.out.println("Escriba su precio: ");
+                        int price = input.nextInt();
+                        listaPaquetes.add(new Paquetes(benefits,name,price));
+                        System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
+                        int boton = input.nextInt();
+                        if(boton==1){
+                            for(Paquetes e: listaPaquetes){
+                                System.out.println(e.mostrarLista());
+                            }
                         }
-                        System.out.println("Se ha guardado el precio: $" + precio.get(p));
+                        else if(boton==2){
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
+                        }
                     case 3:
                         menu_inicio();
                         int b = input.nextInt();
