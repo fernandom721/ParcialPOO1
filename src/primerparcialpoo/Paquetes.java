@@ -27,6 +27,11 @@ public class Paquetes {
         this.nombrePaquete = nombrePaquete;
         this.precio = precio;
     }
+    
+    public String mostrarLista(){
+        return "Nombre del paquete: " + nombrePaquete + ".\n" + "Costo: $" + precio + " del valor inicial por día.\n" + "Beneficios: " + Beneficios + ".\n";
+    }
+    
     public String getBeneficios() {
         return Beneficios;
     }
