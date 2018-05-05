@@ -316,7 +316,6 @@ public class Menu {
                         break;
                     case 2:
                         ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
-                        
                         listaPaquetes.add(new Paquetes("Acceso a buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar y acceso a internet ilimitado","Premium",150));
                         listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado","Básico",10));
                         System.out.println("Escriba el nombre del nuevo paquete: ");
