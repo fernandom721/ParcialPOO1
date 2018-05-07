@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package primerparcialpoo;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import primerparcialpoo.Paquetes;
 /**
- *
  * @author Fernando Martínez
  */
 public class Menu {
@@ -26,10 +26,21 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
         menus_secundarios(a);
+        String arreglo[] = new String[10];
+        int num[] = new int[10];
+        
+        
         ArrayList<String> habitaciones;
         ArrayList<String> Piso = new ArrayList<>();
         ArrayList<String>  Habitacion= new ArrayList<>();
         
+        
+    }
+    public static void reservaC(String nombre){
+        
+        
+        
+    
     }
     public static void menu_inicio () {
         System.out.println("----Hotel Viña Rafinha----");
@@ -43,6 +54,8 @@ public class Menu {
     
     public static void menus_secundarios(int a)
     {
+       
+       
         Scanner input = new Scanner(System.in);
         switch(a)
         {
@@ -141,6 +154,75 @@ public class Menu {
                 switch(y)
                 {
                     case 1:
+                       
+ 
+                        Scanner leer = new Scanner(System.in);
+                        ControlReservas reserva[] = new ControlReservas[10];
+                        ControlReservas datosT[] = new ControlReservas[10];
+                        Pisos Piso[] = new Pisos[6];
+                        String nivel = "";
+                        String nombre=" ";
+                        String dui="";
+                        String forma=" ";
+                        String tarjeta=" ";
+                        int cantidad;
+                        String nombreT="";
+                        String fecha="";
+                        
+                        System.out.println("Ingrese la cantidad de personas a hospedar");
+                        cantidad = leer.nextInt();
+                        for (int i=0;i<cantidad;i++){
+                            System.out.println(" ");
+                            System.out.println("Ingrese el nombre: ");
+                            nombre = leer.nextLine();
+                            System.out.println("Ingrese el DUI: ");
+                            dui = leer.nextLine();
+                            System.out.println("Forma de pago ");
+                            System.out.println("1. Efectivo");
+                            System.out.println("2. Tarjeta de debito");
+                            cantidad = leer.nextInt();
+                            switch(cantidad){
+                                case 1:
+                                        System.out.println("Su reservacion a sido agregada");
+                                    break;
+                                case 2:
+                                        System.out.println("Ingrese el nombre del titular: ");
+                                        nombreT= leer.nextLine();
+                                        System.out.println("Ingrese la fecha del de expiracion: ");
+                                        fecha= leer.nextLine();
+                                             
+                                    break;
+                                default:
+                                    System.out.println("Ingrese una opcion valida.");
+                                    break;
+                            }
+                            int cantidah =0;
+                            System.out.println("Ingrese la cantidad de habitaciones a reservar: ");
+                            cantidah= leer.nextInt();
+                            if(cantidah > 2){
+                                System.err.println("Error, no se pueden reservar mas de dos habitaciones");
+                                System.out.println("No se pueden seleccionar mas de dos habitaciones: ");
+                                System.err.println("Cuantas Habitaciones desea Reservar: ");
+                                if(cantidah <=2){
+                                   System.out.println("Que habitacion desea? : ");
+                                   int n_habs=0;
+                            for(int hab=0; hab<n_habs; hab++){
+                                System.out.print("Seleccione piso: ");
+                                 nivel = leer.nextLine();
+                                System.out.print("Seleccione Habitación: ");
+                                int nhab = leer.nextInt();
+                                System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");
+                                String paquete = leer.nextLine();
+                                
+                            }
+                                }
+                            }
+                            leer.nextLine();
+                            reserva[i] = new ControlReservas(nombre,dui,forma, cantidah);
+                            datosT[i] = new ControlReservas(nombreT,fecha);
+                            Piso[i] = new Pisos(nivel);
+                        }
+                        /**
                         Scanner teclado=new Scanner(System.in);
                         String dui;
                         System.out.print("Ingrese nombre de Cliente: ");
@@ -150,11 +232,13 @@ public class Menu {
                         dui=teclado.nextLine();
                         System.out.print("Forma de Pago del Cliente(Tarjeta o Efectivo): ");
                         String pago = input.next();
+                        
                         Cliente cliente = new Cliente();
                         cliente.setDui(dui);
                         cliente.setForma_pago(pago);
-                        cliente.setNombre(nombre);
-                        System.out.print("¿Cuantas habitaciones desea reservar?: ");
+                        cliente.setNomb
+                        * re(nombre);
+                        System.out.print("¿Cuantas habitaciones desea sreservar?: ");
                         int nhabs = input.nextInt();
                         if (nhabs >2)
                         {
@@ -236,7 +320,7 @@ public class Menu {
                             int b = input.nextInt();
                             menus_secundarios(b);
                         }
-                        break;
+                        break;*/
                     case 2:
                         System.out.println("¿Que reserva desea modificar?");
                         System.out.print("Ingrese el nombre del Cliente: ");
@@ -270,7 +354,7 @@ public class Menu {
                         System.out.println("---Se ha eliminado la reserva---");
                         break;
                     case 4:
-                        //mostrar arrayList de reservas
+                       
                         break;
                     case 5:
                         menu_inicio();
@@ -354,4 +438,6 @@ public class Menu {
                 menus_secundarios(b);
         }
     }
+}
+
 }
