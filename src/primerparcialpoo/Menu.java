@@ -6,7 +6,6 @@
 package primerparcialpoo;
 import java.util.Scanner;
 import java.util.ArrayList;
-import primerparcialpoo.Paquetes;
 /**
  *
  * @author Fernando Martínez
@@ -29,7 +28,7 @@ public class Menu {
         ArrayList<String> habitaciones;
         ArrayList<String> Piso = new ArrayList<>();
         ArrayList<String>  Habitacion= new ArrayList<>();
-        
+                
     }
     public static void menu_inicio () {
         System.out.println("----Hotel Viña Rafinha----");
@@ -150,10 +149,8 @@ public class Menu {
                         dui=teclado.nextLine();
                         System.out.print("Forma de Pago del Cliente(Tarjeta o Efectivo): ");
                         String pago = input.next();
-                        Cliente cliente = new Cliente();
-                        cliente.setDui(dui);
-                        cliente.setForma_pago(pago);
-                        cliente.setNombre(nombre);
+                        Cliente cliente = new Cliente(nombre, dui, pago);
+                        //Reservacion.ListaReservaciones.add(cliente.Nombre());
                         System.out.print("¿Cuantas habitaciones desea reservar?: ");
                         int nhabs = input.nextInt();
                         if (nhabs >2)
@@ -271,6 +268,7 @@ public class Menu {
                         break;
                     case 4:
                         //mostrar arrayList de reservas
+                        Reservacion.ListaReservaciones.get(0);
                         break;
                     case 5:
                         menu_inicio();

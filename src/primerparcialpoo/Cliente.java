@@ -47,7 +47,7 @@ public class Cliente {
     public void setForma_pago(String Forma_pago) {
         this.Forma_pago = Forma_pago;
     }
-    
+
     
 }
 

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package primerparcialpoo;
+import java.util.ArrayList;
+import primerparcialpoo.Cliente;
 
 /**
  *
@@ -14,11 +16,26 @@ public class Reservacion {
     private int CantidadDeHabitaciones;
     private float TotalAPagar;
     private boolean Reservacion;
-
     private String Inf_huesped;
     private int dias_reservados;
     private String Numero_habitacion;
-
+    static ArrayList <Reservacion> ListaReservaciones = new ArrayList <>();
+    
+    public static ArrayList<Reservacion>ListaReservacion;
+    
+    
+    
+    public Reservacion(){}
+    public Reservacion (String Inf_huesped)
+    {
+        this.Inf_huesped = Inf_huesped;
+    }
+    
+    public static void ListaReservaciones()
+    {
+        
+    }
+    
     public String getInf_huesped() {
         return Inf_huesped;
     }
