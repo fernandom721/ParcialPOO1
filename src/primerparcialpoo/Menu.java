@@ -181,7 +181,7 @@ public class Menu {
                             if (dias > 7) {
                                 System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
                                 System.out.print("Seleccione los días que desea reservar:");
-                                Reservacion.ListaReservaciones.add(cliente.getNombre(),cliente.getForma_pago(),"edfghj" , dias,"asdfghj" , 500);
+                                //Reservacion.ListaReservaciones.add(cliente.getNombre(),cliente.getForma_pago(),"edfghj" , dias,"asdfghj" , 500);
                                 //agregar reservacion
                                 System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
                                 System.out.print("Su total a pagar es de :");

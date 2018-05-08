@@ -17,10 +17,6 @@ public class Reservacion {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    static void getListaReservaciones(String pago) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     private float TotalAPagar;
     private Cliente Cliente;
     private String Inf_huesped;
