@@ -95,7 +95,6 @@ public class Menu {
                 {
                     case 1:
                         System.out.println("Ingrese nuevo precio de habitacion");
-                        int salto = input.nextInt();
                         int PrecioDeHabitacion = input.nextInt();
                         
                         break;
@@ -129,7 +128,7 @@ public class Menu {
                                 break;
                                 
                             default:
-                                System.out.println("Ingrese un dato valido");
+                                System.err.println("Ingrese un dato valido");
                                 menu_inicio();
                                 int s = input.nextInt();
                                 menus_secundarios(s);
@@ -150,7 +149,6 @@ public class Menu {
                 System.out.println("4) Mostrar Reservaciones");
                 System.out.println("5) Back");
                 int y = input.nextInt();
-                ArrayList<Cliente> listadoClientes = new ArrayList<>();
                 switch(y)
                 {
                     case 1:
@@ -174,6 +172,7 @@ public class Menu {
                         for (int i=0;i<cantidad;i++){
                             System.out.println(" ");
                             System.out.println("Ingrese el nombre: ");
+                            String salton = input.nextLine();
                             nombre = leer.nextLine();
                             System.out.println("Ingrese el DUI: ");
                             dui = leer.nextLine();
@@ -187,13 +186,14 @@ public class Menu {
                                     break;
                                 case 2:
                                         System.out.println("Ingrese el nombre del titular: ");
+                                        String saltin = input.nextLine();
                                         nombreT= leer.nextLine();
                                         System.out.println("Ingrese la fecha del de expiracion: ");
                                         fecha= leer.nextLine();
                                              
                                     break;
                                 default:
-                                    System.out.println("Ingrese una opcion valida.");
+                                    System.err.println("Ingrese una opcion valida.");
                                     break;
                             }
                             int cantidah =0;
@@ -201,8 +201,7 @@ public class Menu {
                             cantidah= leer.nextInt();
                             if(cantidah > 2){
                                 System.err.println("Error, no se pueden reservar mas de dos habitaciones");
-                                System.out.println("No se pueden seleccionar mas de dos habitaciones: ");
-                                System.err.println("Cuantas Habitaciones desea Reservar: ");
+                                System.out.println("Cuantas Habitaciones desea Reservar: ");
                                 if(cantidah <=2){
                                    System.out.println("Que habitacion desea? : ");
                                    int n_habs=0;
@@ -400,27 +399,54 @@ public class Menu {
                         break;
                     case 2:
                         ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
+                        String nameBasic = "Basico";
+                        String namePremium = "Premium";
                         listaPaquetes.add(new Paquetes("Acceso a buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar y acceso a internet ilimitado","Premium",150));
-                        listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado","Básico",10));
+                        listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado","Basico",10));
                         System.out.println("Escriba el nombre del nuevo paquete: ");
                         String name = input.next();
-                        System.out.println("Escriba los beneficios del paquete "+name+": ");
-                        String saltin = input.nextLine();
-                        String benefits = input.nextLine();
-                        System.out.println("Escriba su precio: ");
-                        int price = input.nextInt();
-                        listaPaquetes.add(new Paquetes(benefits,name,price));
-                        System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
-                        int boton = input.nextInt();
-                        if(boton==1){
-                            for(Paquetes e: listaPaquetes){
-                                System.out.println(e.mostrarLista());
+                        if(name.equals(nameBasic)||name.equals(namePremium)){
+                            System.err.println("El paquete ya existe. Inténtelo de nuevo.\n");
+                            System.out.println("Escriba el nombre del nuevo paquete: ");
+                            String nombre = input.next();
+                            System.out.println("Escriba los beneficios del paquete "+name+": ");
+                            String saltin = input.nextLine();
+                            String benefits = input.nextLine();
+                            System.out.println("Escriba su precio: ");
+                            int price = input.nextInt();
+                            listaPaquetes.add(new Paquetes(benefits,nombre,price));
+                            System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
+                            int boton = input.nextInt();
+                            if(boton==1){
+                                for(Paquetes e: listaPaquetes){
+                                    System.out.println(e.mostrarLista());
+                                }
+                            }
+                            else if(boton==2){
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
                             }
                         }
-                        else if(boton==2){
-                            menu_inicio();
-                            int b = input.nextInt();
-                            menus_secundarios(b);
+                        else{
+                            System.out.println("Escriba los beneficios del paquete "+name+": ");
+                            String saltin = input.nextLine();
+                            String benefits = input.nextLine();
+                            System.out.println("Escriba su precio: ");
+                            int price = input.nextInt();
+                            listaPaquetes.add(new Paquetes(benefits,name,price));
+                            System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
+                            int boton = input.nextInt();
+                            if(boton==1){
+                                for(Paquetes e: listaPaquetes){
+                                    System.out.println(e.mostrarLista());
+                                }
+                            }
+                            else if(boton==2){
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
+                            }
                         }
                     case 3:
                         menu_inicio();
@@ -440,4 +466,4 @@ public class Menu {
     }
 }
 
-}
+
