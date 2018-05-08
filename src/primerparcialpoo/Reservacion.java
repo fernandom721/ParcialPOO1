@@ -14,11 +14,36 @@ public class Reservacion {
     private int CantidadDeHabitaciones;
     private float TotalAPagar;
     private boolean Reservacion;
-
+    private Cliente Cliente;
     private String Inf_huesped;
     private int dias_reservados;
-    private String Numero_habitacion;
+    private String Numero_habitacion;;
+    private String piso;
+    private String paquete;
+    private int dias;
+ 
 
+    public void setPaquete(String paquete) {
+        this.paquete = paquete;
+    }
+    
+    public void setDias(int dias) {
+        this.dias = dias;
+    }
+
+    public void setPiso(String piso) {
+        this.piso = piso;
+    }
+    
+    public void setCliente(Cliente Cliente) {
+        this.Cliente = Cliente;
+    }
+
+    public void setReservacion(boolean Reservacion) {
+        this.Reservacion = Reservacion;
+    }
+
+    
     public String getInf_huesped() {
         return Inf_huesped;
     }
@@ -65,6 +90,16 @@ public class Reservacion {
 
     public void setTotalAPagar(float TotalAPagar) {
         this.TotalAPagar = TotalAPagar;
+    }
+    
+    public void mostrar() {
+        System.out.println("Cliente: " + Cliente.getNombre());
+        System.out.println("DUI: " + Cliente.getDui());
+        System.out.println("Forma: " + Cliente.getForma_pago());
+        System.out.println("Cantidad de Habitaciones: " + CantidadDeHabitaciones);
+        System.out.println("Codigo Habitacion: " + piso + Numero_habitacion);
+        System.out.println("Tipo de paquete: " + paquete);
+        
     }
     
     
