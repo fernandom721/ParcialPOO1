@@ -7,105 +7,88 @@ package primerparcialpoo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import primerparcialpoo.Paquetes;
+
 /**
  * @author Fernando Martínez
  */
 public class Menu {
-    
-    
-        static ArrayList<String> habitaciones;
-        static ArrayList<String> Piso = new ArrayList<>();
-        static ArrayList<String>  Habitacion= new ArrayList<>();
-        static ArrayList<Reservacion> Reservaciones = new ArrayList<Reservacion>();
-        static ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
-    
+
+    static ArrayList<String> habitaciones;
+    static ArrayList<String> Piso = new ArrayList<>();
+    static ArrayList<String> Habitacion = new ArrayList<>();
+    static ArrayList<Reservacion> Reservaciones = new ArrayList<Reservacion>();
+    static ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
+    static ArrayList<Habitacion> habilitado = new ArrayList<Habitacion>();
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       
-        menu_inicio();          
-        
+
+        menu_inicio();
+
         Scanner input = new Scanner(System.in);
         int a = input.nextInt();
         menus_secundarios(a);
         String arreglo[] = new String[10];
         int num[] = new int[10];
-      
+
     }
-    public static void reservaC(String nombre){
-        
-        
-        
-    
-    }
-    public static void menu_inicio () {
+
+    public static void menu_inicio() {
         System.out.println("----Hotel Viña Rafinha----");
         System.out.println("Seleccione una Opción");
-        System.out.println("1) Habitaciones");
+        System.out.println("1) Mostrar habitaciones disponibles");
         System.out.println("2) Precios");
         System.out.println("3) Reservas");
         System.out.println("4) Administrar");
         System.out.println("5) Salir");
     }
-    
-    public static void menus_secundarios(int a)
-    {
-      
-        
+
+    public static void menus_secundarios(int a) {
+
         Scanner input = new Scanner(System.in);
-        switch(a)
-        {
+
+        switch (a) {
+            //////////////////////////////////////////////////////////////////// HABITACIONES
             case 1:
                 System.out.println("----Habitaciones----");
-                System.out.println("1) Habilitar/Desabilitar habitaciones");
-                System.out.println("2) Habilitar/Desabilitar pisos");
-                System.out.println("3) Mostrar Habitaciones");
-                System.out.println("4) Back");
+                System.out.println("1) Mostrar habitaciones");
+                System.out.println("2) Back");
                 int w = input.nextInt();
-                switch (w)
-                {
+                switch (w) {
                     case 1:
-                        System.out.println("1) Habilitar/Desabilitar habitaciones");
-                        String piso = input.nextLine();
-                        Habitacion habitacion = new Habitacion();
-                        habitacion.Disponibilidad(piso);
-                       case 2:
-                        System.out.println("1) Habilitar/Desabilitar pisos");
-                        
-                    case 3:
-                        System.out.println("1) Mostrar habitaciones");
-                    case 4:
+
+                    case 2:
                         menu_inicio();
                         int b = input.nextInt();
                         menus_secundarios(b);
-                        
+
                 }
                 break;
+            //////////////////////////////////////////////////////////////////// PRECIOS
             case 2:
                 System.out.println("----Precios----");
                 System.out.println("1) Modificar Precio de Habitaciones");
                 System.out.println("2) Modificar Precio de Paquetes");
                 System.out.println("3) Back");
                 int x = input.nextInt();
-                switch (x)
-                {
+                switch (x) {
                     case 1:
                         System.out.println("Ingrese nuevo precio de habitacion");
                         int PrecioDeHabitacion = input.nextInt();
-                        
+
                         break;
-                    
+
                     case 2:
                         System.out.println("Ingrese paquete a modificar precio");
                         System.out.println("1) Modificar Paquete Basico");
                         System.out.println("2) Modificar Paquete Premium");
                         System.out.println("3) Back");
-                        Paquetes paquete = new Paquetes ();
+                        Paquetes paquete = new Paquetes();
                         int TipoDePaquete = input.nextInt();
-                        switch (TipoDePaquete){
+                        switch (TipoDePaquete) {
                             case 1:
                                 System.out.println("Ingrese nuevo precio de Paquete");
                                 int PrecioPaqueteBasico = input.nextInt();
@@ -117,15 +100,14 @@ public class Menu {
                                 int PrecioPaquetePremium = input.nextInt();
                                 paquete.setPrecio(PrecioPaquetePremium);
                                 System.out.println("El nuevo precio del paquete Premium en dolares es de :" + paquete.getPrecio());
-                                
-                                
+
                                 break;
                             case 3:
                                 menu_inicio();
                                 int b = input.nextInt();
                                 menus_secundarios(b);
                                 break;
-                                
+
                             default:
                                 System.err.println("Ingrese un dato valido");
                                 menu_inicio();
@@ -133,13 +115,14 @@ public class Menu {
                                 menus_secundarios(s);
                                 break;
                         }
-                        
+
                     case 3:
                         menu_inicio();
                         int b = input.nextInt();
                         menus_secundarios(b);
                 }
                 break;
+            //////////////////////////////////////////////////////////////////// RESERVAS
             case 3:
                 System.out.println("----Reservas----");
                 System.out.println("1) Agregar Reserva");
@@ -148,81 +131,9 @@ public class Menu {
                 System.out.println("4) Mostrar Reservaciones");
                 System.out.println("5) Back");
                 int y = input.nextInt();
-                switch(y)
-                {
+                switch (y) {
                     case 1:
-                       
-                        /*
-                        Scanner leer = new Scanner(System.in);
-                        ControlReservas reserva[] = new ControlReservas[10];
-                        ControlReservas datosT[] = new ControlReservas[10];
-                        Pisos Piso[] = new Pisos[6];
-                        String nivel = "";
-                        String nombre=" ";
-                        String dui="";
-                        String forma=" ";
-                        String tarjeta=" ";
-                        int cantidad;
-                        String nombreT="";
-                        String fecha="";
-                        
-                        System.out.println("Ingrese la cantidad de personas a hospedar");
-                        cantidad = leer.nextInt();
-                        for (int i=0;i<cantidad;i++){
-                            System.out.println(" ");
-                            System.out.println("Ingrese el nombre: ");
-                            String salton = input.nextLine();
-                            nombre = leer.nextLine();
-                            System.out.println("Ingrese el DUI: ");
-                            dui = leer.nextLine();
-                            System.out.println("Forma de pago ");
-                            System.out.println("1. Efectivo");
-                            System.out.println("2. Tarjeta de debito");
-                            cantidad = leer.nextInt();
-                            switch(cantidad){
-                                case 1:
-                                        System.out.println("Su reservacion a sido agregada");
-                                    break;
-                                case 2:
-                                        System.out.println("Ingrese el nombre del titular: ");
-                                        String saltin = input.nextLine();
-                                        nombreT= leer.nextLine();
-                                        System.out.println("Ingrese la fecha del de expiracion: ");
-                                        fecha= leer.nextLine();
-                                             
-                                    break;
-                                default:
-                                    System.err.println("Ingrese una opcion valida.");
-                                    break;
-                            }
-                            int cantidah =0;
-                            System.out.println("Ingrese la cantidad de habitaciones a reservar: ");
-                            cantidah= leer.nextInt();
-                            if(cantidah > 2){
-                                System.err.println("Error, no se pueden reservar mas de dos habitaciones");
-                                System.out.println("Cuantas Habitaciones desea Reservar: ");
-                                if(cantidah <=2){
-                                   System.out.println("Que habitacion desea? : ");
-                                   int n_habs=0;
-                            for(int hab=0; hab<n_habs; hab++){
-                                System.out.print("Seleccione piso: ");
-                                 nivel = leer.nextLine();
-                                System.out.print("Seleccione Habitación: ");
-                                int nhab = leer.nextInt();
-                                System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");
-                                String paquete = leer.nextLine();
-                                
-                            }
-                                }
-                            }
-                            leer.nextLine();
-                            reserva[i] = new ControlReservas(nombre,dui,forma, cantidah);
-                            datosT[i] = new ControlReservas(nombreT,fecha);
-                            Piso[i] = new Pisos(nivel);
-                        }
-                        */
-                        
-                        Scanner teclado=new Scanner(System.in);
+                        Scanner teclado = new Scanner(System.in);
                         Reservacion Reservacion = new Reservacion();
                         Reservaciones.add(Reservacion);
                         Cliente cliente = new Cliente();
@@ -236,16 +147,14 @@ public class Menu {
                         Reservacion.setCliente(cliente);
                         System.out.print("¿Cuantas habitaciones desea sreservar?: ");
                         int nhabs = input.nextInt();
-                        if (nhabs >2)
-                        {
+                        if (nhabs > 2) {
                             System.err.println("Lo sentimos, no puede reservas mas de 2 habitaciones");
                             System.out.print("¿Cuantas habitaciones desea reservar?: ");
                             int n_habs = input.nextInt();
                             Reservacion.setCantidadDeHabitaciones(n_habs);
-                            
+
                             System.out.println("Escoga la/las habitacion/es que desea");
-                            for(int hab=0; hab<n_habs; hab++)
-                            {
+                            for (int hab = 0; hab < n_habs; hab++) {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
                                 Reservacion.setPiso(input.nextLine());
@@ -253,18 +162,16 @@ public class Menu {
                                 Reservacion.setNumero_habitacion(input.nextLine());
                                 System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");
                                 Reservacion.setPaquete(input.next());
-                                
+
                             }
-                            
-            
+
                             System.out.print("Seleccione los días que desea reservar:");
                             int dias = input.nextInt();
-                            if(dias > 7)
-                            {
+                            if (dias > 7) {
                                 System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
                                 System.out.print("Seleccione los días que desea reservar:");
                                 Reservacion.setDias(input.nextInt());
-                                
+
                                 //agregar reservacion
                                 System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
                                 System.out.print("Su total a pagar es de :");
@@ -272,28 +179,22 @@ public class Menu {
                                 menu_inicio();
                                 int b = input.nextInt();
                                 menus_secundarios(b);
-                            }
-                            else
-                            {
+                            } else {
                                 // agregar reservacion
                             }
                             System.out.println("----Su Reserva se ha completado con exito----\n\n");
                             System.out.print("Su total a pagar es de :");
-                                //mostrar precio final
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
-                            
-                        }
-                        else
-                        {
-                            
-                           
+                            //mostrar precio final
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
+
+                        } else {
+
                             Reservacion.setCantidadDeHabitaciones(nhabs);
-                            
+
                             System.out.println("Escoga la/las habitacion/es que desea");
-                            for(int hab=0; hab<nhabs; hab++)
-                            {
+                            for (int hab = 0; hab < nhabs; hab++) {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
                                 Reservacion.setPiso(input.nextLine());
@@ -301,18 +202,16 @@ public class Menu {
                                 Reservacion.setNumero_habitacion(input.nextLine());
                                 System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");
                                 Reservacion.setPaquete(input.next());
-                                
+
                             }
-                            
-            
+
                             System.out.print("Seleccione los días que desea reservar:");
                             int dias = input.nextInt();
-                            if(dias > 7)
-                            {
+                            if (dias > 7) {
                                 System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
                                 System.out.print("Seleccione los días que desea reservar:");
                                 Reservacion.setDias(input.nextInt());
-                                
+
                                 //agregar reservacion
                                 System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
                                 System.out.print("Su total a pagar es de :");
@@ -320,17 +219,15 @@ public class Menu {
                                 menu_inicio();
                                 int b = input.nextInt();
                                 menus_secundarios(b);
-                            }
-                            else
-                            {
+                            } else {
                                 // agregar reservacion
                             }
                             System.out.println("----Su Reserva se ha completado con exito----\n\n");
                             System.out.print("Su total a pagar es de :");
-                                //mostrar precio final
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
+                            //mostrar precio final
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
                         }
                         break;
                     case 2:
@@ -343,8 +240,7 @@ public class Menu {
                         System.out.println("2) Paquetes");
                         System.out.println("3) Dias Reservados");
                         int cambio = input.nextInt();
-                        switch (cambio)
-                        {
+                        switch (cambio) {
                             case 1:
                                 System.out.print("Seleccione Nuevas Habitaciones: ");
                                 String nuevahab = input.next();
@@ -369,8 +265,8 @@ public class Menu {
                         Reservaciones.forEach((reservacion) -> {
                             reservacion.mostrar();
                         });
-                          menu_inicio();
-                        int xx= input.nextInt();
+                        menu_inicio();
+                        int xx = input.nextInt();
                         menus_secundarios(xx);
                         break;
                     case 5:
@@ -379,98 +275,195 @@ public class Menu {
                         menus_secundarios(b);
                 }
                 break;
+            //////////////////////////////////////////////////////////////////// ADMINISTRACIÓN
             case 4:
                 System.out.println("----Administrar----");
-                System.out.println("1) Inicializar Valores");
-                System.out.println("2) Agregar Paquete");
-                System.out.println("3) Back");
-                int z = input.nextInt();
-                switch(z)
-                {
-                    case 1:
-                        Habitacion Piso = new Habitacion();
+                System.out.println("¡Bienvenido administrador!\nPor favor ingrese su usuario y contraseña");
+                String usuario = "admin";
+                String contra = "rasen";
+                System.out.println("Usuario: ");
+                String user = input.next();
+                System.out.println("Contraseña: ");
+                String pass = input.next();
+                if (user.equals(usuario) && pass.equals(contra)) {
+                    System.out.println("\n¡Qué bueno verlo de regreso, administrador!");
+                    System.out.println("1) Inicializar Valores");
+                    System.out.println("2) Agregar Paquete");
+                    System.out.println("3) Habilitar o deshabilitar habitación");
+                    System.out.println("4) Habilitar o deshabilitar piso");
+                    System.out.println("5) Back");
+                    int z = input.nextInt();
+                    Habitacion Piso = new Habitacion();
+                    switch (z) {
+                        case 1:
+
 ///////////////////////////////////////AGREGAR PISOS///////////////////////                        
-                        System.out.println("Seleccione la cantidad inicial de pisos, con un minimo de 6 y un maximo de 15:");
-                        int AgPiso = input.nextInt();
-                        
-                        while (AgPiso < 6  || AgPiso > 15){
-                            System.out.println("Coloque una opcion valida porfavor");
-                            AgPiso = input.nextInt();
-                        }
-                        
-                        Piso.AgregarPisoInicial(AgPiso);
-                        System.out.println("Estos son los pisos obtenidos:");
-                        Piso.MostrarPisos();
+                            System.out.println("Seleccione la cantidad inicial de pisos, con un minimo de 6 y un maximo de 15:");
+                            int AgPiso = input.nextInt();
+
+                            while (AgPiso < 6 || AgPiso > 15) {
+                                System.out.println("Coloque una opcion valida porfavor");
+                                AgPiso = input.nextInt();
+                            }
+
+                            Piso.AgregarPisoInicial(AgPiso);
+                            System.out.println("Estos son los pisos obtenidos:");
+                            Piso.MostrarPisos();
 //////////////////////////////////AGREGAR HABITACIONES///////////////////////////                        
-                        System.out.println("Seleccione la cantidad inicial de habitaciones, con un minimo de 10 y un maximo de 20:");
-                        int AgCantHabitaciones = input.nextInt();
-                        
-                        while (AgCantHabitaciones < 10  || AgCantHabitaciones > 20){
-                            System.out.println("Coloque una opcion valida porfavor");
-                            AgPiso = input.nextInt();
-                        }
-                        
-                        Piso.AgregarHabitaciones(AgCantHabitaciones);
-                        System.out.println("Estos son los numeros de  habitacion obtenidos:");
-                        Piso.MostrarNumeroHabitacion();
-                        
-                        break;
-                    case 2:
-                        
-                        String nameBasic = "Basico";
-                        String namePremium = "Premium";
-                        listaPaquetes.add(new Paquetes("Acceso a buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar y acceso a internet ilimitado","Premium",150));
-                        listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado","Basico",10));
-                        System.out.println("Escriba el nombre del nuevo paquete: ");
-                        String name = input.next();
-                        if(name.equals(nameBasic)||name.equals(namePremium)){
-                            System.err.println("El paquete ya existe. Inténtelo de nuevo.\n");
+                            System.out.println("Seleccione la cantidad inicial de habitaciones, con un minimo de 10 y un maximo de 20:");
+                            int AgCantHabitaciones = input.nextInt();
+
+                            while (AgCantHabitaciones < 10 || AgCantHabitaciones > 20) {
+                                System.err.println("Coloque una opcion valida porfavor");
+                                AgPiso = input.nextInt();
+                            }
+
+                            Piso.AgregarHabitaciones(AgCantHabitaciones);
+                            System.out.println("Estos son los números de  habitación obtenidos:");
+                            Piso.MostrarNumeroHabitacion();
+                            System.out.println("\n");
+                            menu_inicio();
+                            int j = input.nextInt();
+                            menus_secundarios(j);
+                            break;
+                        case 2:
+
+                            String nameBasic = "Basico";
+                            String namePremium = "Premium";
+                            listaPaquetes.add(new Paquetes("Acceso a buffet de desayuno, acceso ilimitado a la piscina, servicio a la habitación, acceso ilimitado al minibar y acceso a internet ilimitado", "Premium", 150));
+                            listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado", "Basico", 10));
                             System.out.println("Escriba el nombre del nuevo paquete: ");
-                            String nombre = input.next();
-                            System.out.println("Escriba los beneficios del paquete "+name+": ");
-                            String saltin = input.nextLine();
-                            String benefits = input.nextLine();
-                            System.out.println("Escriba su precio: ");
-                            int price = input.nextInt();
-                            listaPaquetes.add(new Paquetes(benefits,nombre,price));
-                            System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
-                            int boton = input.nextInt();
-                            if(boton==1){
-                                for(Paquetes e: listaPaquetes){
-                                    System.out.println(e.mostrarLista());
+                            String name = input.next();
+                            if (name.equals(nameBasic) || name.equals(namePremium)) {
+                                System.err.println("El paquete ya existe. Inténtelo de nuevo.\n");
+                                System.out.println("Escriba el nombre del nuevo paquete: ");
+                                String nombre = input.next();
+                                System.out.println("Escriba los beneficios del paquete " + name + ": ");
+                                String saltin = input.nextLine();
+                                String benefits = input.nextLine();
+                                System.out.println("Escriba su precio: ");
+                                int price = input.nextInt();
+                                listaPaquetes.add(new Paquetes(benefits, nombre, price));
+                                System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
+                                int boton = input.nextInt();
+                                if (boton == 1) {
+                                    for (Paquetes e : listaPaquetes) {
+                                        System.out.println(e.mostrarLista());
+                                    }
+                                } else if (boton == 2) {
+                                    menu_inicio();
+                                    int b = input.nextInt();
+                                    menus_secundarios(b);
+                                }
+                            } else {
+                                System.out.println("Escriba los beneficios del paquete " + name + ": ");
+                                String saltin = input.nextLine();
+                                String benefits = input.nextLine();
+                                System.out.println("Escriba su precio: ");
+                                int price = input.nextInt();
+                                listaPaquetes.add(new Paquetes(benefits, name, price));
+                                System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
+                                int boton = input.nextInt();
+                                if (boton == 1) {
+                                    for (Paquetes e : listaPaquetes) {
+                                        System.out.println(e.mostrarLista());
+                                    }
+                                } else if (boton == 2) {
+                                    menu_inicio();
+                                    int b = input.nextInt();
+                                    menus_secundarios(b);
                                 }
                             }
-                            else if(boton==2){
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
-                            }
-                        }
-                        else{
-                            System.out.println("Escriba los beneficios del paquete "+name+": ");
-                            String saltin = input.nextLine();
-                            String benefits = input.nextLine();
-                            System.out.println("Escriba su precio: ");
-                            int price = input.nextInt();
-                            listaPaquetes.add(new Paquetes(benefits,name,price));
-                            System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
-                            int boton = input.nextInt();
-                            if(boton==1){
-                                for(Paquetes e: listaPaquetes){
-                                    System.out.println(e.mostrarLista());
+                        case 3:
+                            int desh;
+                            System.out.println("Verifique el número de habitaciones existentes:");
+                            int AgCantH = input.nextInt();
+                            System.out.println("\n");
+                            Piso.AgregarHabitaciones(AgCantH);
+                            Piso.MostrarNumeroHabitacion();
+                            System.out.println("\nPara las anteriormente mostradas, si desea deshabilitar alguna escriba 1, si desea habilitar alguna escriba 2");
+                            int d = input.nextInt();
+                            if (d == 1) {
+                                System.out.println("Escriba el número de habitación que desea deshabilitar: ");
+                                desh = input.nextInt();
+                                int number = Piso.CantHabitaciones[desh];
+                                boolean Disponibilidad = Piso.Disponible(number);
+                                if(desh>AgCantH){
+                                    System.err.println("El dato introducido excede a la cantidad de habitaciones que posee éste piso. No se puede completar la acción.");
+                                }
+                                if(Disponibilidad=true){
+                                    System.out.println("Habitación deshabilitada");
+                                }
+                                else{
+                                    System.err.println("No se pudo realizar la acción");
                                 }
                             }
-                            else if(boton==2){
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
+                            if (d == 2) {
+                                System.out.println("Escriba el número de habitación que desea habilitar: ");
+                                desh = input.nextInt();
+                                int number = Piso.CantHabitaciones[desh];
+                                boolean Disponibilidad = Piso.Disponible(number);
+                                if (Disponibilidad = false) {
+                                    System.out.println("Habitación habilitada");
+                                }
+                                else{
+                                    System.err.println("No se pudo realizar la acción debido a que no existe ningún piso deshabilitado.");
+                                }
                             }
-                        }
-                    case 3:
-                        menu_inicio();
-                        int b = input.nextInt();
-                        menus_secundarios(b);
-                        break;
+                        case 4:
+                            int desp;
+                            System.out.println("Verifique el número de pisos existentes: (mayor a 6, menor a 27)");
+                            int AgCantP = input.nextInt();
+                            if (AgCantP >= 6 && AgCantP <= 27) {
+                                System.out.println("\n");
+                                Piso.AgregarPisoInicial(AgCantP);
+                                Piso.MostrarPisos();
+                                System.out.println("\nPara las anteriormente mostradas, si desea deshabilitar alguno escriba 1, si desea habilitar alguno escriba 2");
+                                int g = input.nextInt();
+                                if (g == 1) {
+                                    System.out.println("Escriba el número de piso que desea deshabilitar: (Éstos se ordenan de la A a la Z. Numéricamente del 1 al 27)");
+                                    desp = input.nextInt();
+                                    int number = Piso.CantHabitaciones[desp];
+                                    boolean Disponibilidad = Piso.Disponible(number);
+                                    if (desp > 27) {
+                                        System.err.println("El dato introducido excede a la cantidad de pisos que posee el edificio actualmente. No se puede completar la acción.");
+                                    }
+                                    if (Disponibilidad = true) {
+                                        System.out.println("Habitación deshabilitada");
+                                    } else {
+                                        System.err.println("No se pudo realizar la acción");
+                                    }
+                                }
+                                if (g == 2) {
+                                    System.out.println("Escriba el número de habitación que desea habilitar: ");
+                                    desp = input.nextInt();
+                                    int number = Piso.CantHabitaciones[desp];
+                                    boolean Disponibilidad = Piso.Disponible(number);
+                                    if (desp > 27) {
+                                        System.err.println("El dato introducido excede a la cantidad de habitaciones que posee éste piso. No se puede completar la acción.");
+                                    }
+                                    if (Disponibilidad = false) {
+                                        System.out.println("Habitación habilitada");
+                                    } else {
+                                        System.err.println("No se pudo realizar la acción debido a que no existe ningún piso deshabilitado.");
+                                    }
+                                }
+                            }
+                            else{
+                                System.err.println("Datos introducidos inválidos. No se puede completar la acción.");
+                            }
+                            
+                        case 5:
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
+                            break;
+                    }
+                } else {
+                    System.err.println("Nombre de usuario ó contraseña inválidos. No se pudo iniciar sesión.");
+                    menu_inicio();
+                    int b = input.nextInt();
+                    menus_secundarios(b);
                 }
                 break;
             case 5:
@@ -483,5 +476,3 @@ public class Menu {
         }
     }
 }
-
-
