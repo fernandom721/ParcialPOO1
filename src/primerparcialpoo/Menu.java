@@ -262,7 +262,7 @@ public class Menu {
                         String Busca = input.nextLine();
                         int i= 0;
                         while (i < Reservaciones.size()){
-                            if(Busca == Reservaciones(.get(i)){
+                            if(Busca.equals(Reservaciones.get(i))){
                                 Reservaciones.remove(i);
                             }
                             i++;
@@ -299,7 +299,7 @@ public class Menu {
                     System.out.println("2) Agregar Paquete");
                     System.out.println("3) Habilitar o deshabilitar habitación");
                     System.out.println("4) Habilitar o deshabilitar piso");
-                    System.out.println("5) Back");
+                    System.out.println("5) Back");             
                     int z = input.nextInt();
                     Habitacion Piso = new Habitacion();
                     switch (z) {
@@ -396,13 +396,12 @@ public class Menu {
                                 desh = input.nextInt();
                                 int number = Piso.CantHabitaciones[desh];
                                 boolean Disponibilidad = Piso.Disponible(number);
-                                if(desh>AgCantH){
+                                if (desh > AgCantH) {
                                     System.err.println("El dato introducido excede a la cantidad de habitaciones que posee éste piso. No se puede completar la acción.");
                                 }
-                                if(Disponibilidad=true){
+                                if (Disponibilidad = true) {
                                     System.out.println("Habitación deshabilitada");
-                                }
-                                else{
+                                } else {
                                     System.err.println("No se pudo realizar la acción");
                                 }
                             }
@@ -413,11 +412,14 @@ public class Menu {
                                 boolean Disponibilidad = Piso.Disponible(number);
                                 if (Disponibilidad = false) {
                                     System.out.println("Habitación habilitada");
-                                }
-                                else{
+                                } else {
                                     System.err.println("No se pudo realizar la acción debido a que no existe ningún piso deshabilitado.");
                                 }
                             }
+                            menu_inicio();
+                            int bbb = input.nextInt();
+                            menus_secundarios(bbb);
+                            break;
                         case 4:
                             int desp;
                             System.out.println("Verifique el número de pisos existentes: (mayor a 6, menor a 27)");
@@ -456,17 +458,20 @@ public class Menu {
                                         System.err.println("No se pudo realizar la acción debido a que no existe ningún piso deshabilitado.");
                                     }
                                 }
-                            }
-                            else{
+                            } else {
                                 System.err.println("Datos introducidos inválidos. No se puede completar la acción.");
                             }
-                            
+                            menu_inicio();
+                            int bb = input.nextInt();
+                            menus_secundarios(bb);
+                            break;
                         case 5:
                             menu_inicio();
                             int b = input.nextInt();
                             menus_secundarios(b);
                             break;
                     }
+
                 } else {
                     System.err.println("Nombre de usuario ó contraseña inválidos. No se pudo iniciar sesión.");
                     menu_inicio();
