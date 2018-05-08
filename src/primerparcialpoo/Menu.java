@@ -259,6 +259,14 @@ public class Menu {
                     case 3:
                         System.out.print("Seleccione el nombre del Cliente: ");
                         // eliminar reserva
+                        String Busca = input.nextLine();
+                        int i= 0;
+                        while (i < Reservaciones.size()){
+                            if(Busca == Reservaciones(.get(i)){
+                                Reservaciones.remove(i);
+                            }
+                            i++;
+                        }
                         System.out.println("---Se ha eliminado la reserva---");
                         break;
                     case 4:
