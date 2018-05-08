@@ -7,6 +7,7 @@ package primerparcialpoo;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import primerparcialpoo.Reservacion;
 
 /**
  * @author Fernando Martínez
@@ -16,9 +17,10 @@ public class Menu {
     static ArrayList<String> habitaciones;
     static ArrayList<String> Piso = new ArrayList<>();
     static ArrayList<String> Habitacion = new ArrayList<>();
-    static ArrayList<Reservacion> Reservaciones = new ArrayList<Reservacion>();
+    //static ArrayList<Reservacion> Reservaciones = new ArrayList<Reservacion>();
     static ArrayList<Paquetes> listaPaquetes = new ArrayList<Paquetes>();
     static ArrayList<Habitacion> habilitado = new ArrayList<Habitacion>();
+    static ArrayList<Reservacion> ListaReservaciones = new ArrayList<Reservacion>();
 
     /**
      * @param args the command line arguments
@@ -45,10 +47,7 @@ public class Menu {
         System.out.println("4) Administrar");
         System.out.println("5) Salir");
     }
-/**
- * Unicamente envia la opcion a menus secundarios
- * @param a 
- */
+
     public static void menus_secundarios(int a) {
 
         Scanner input = new Scanner(System.in);
@@ -147,38 +146,44 @@ public class Menu {
                 int y = input.nextInt();
                 switch (y) {
                     case 1:
-                        
-                        Cliente cliente = new Cliente();
+
+                        //Cliente cliente = new Cliente();
+                        Reservacion cliente = new Reservacion();
                         input.nextLine();
+                        int total = 40;
                         System.out.print("Ingrese nombre de Cliente: ");
                         String nombre = input.nextLine();
-                        cliente.setNombre(nombre);
+//                        cliente.setNombre(nombre);
                         System.out.print("Ingrese DUI del Cliente: ");
                         int dui = input.nextInt();
-                        cliente.setDui(dui);
+                        //                      cliente.setDui(dui);
                         System.out.print("Forma de Pago del Cliente(Tarjeta o Efectivo): ");
+                        String saltin = input.nextLine();
                         String pago = input.nextLine();
-                        cliente.setForma_pago(pago);
+                        //                    cliente.setForma_pago(pago);
+                        cliente.datosCliente(nombre, dui, pago);
                         System.out.print("¿Cuantas habitaciones desea reservar?: ");
                         int nhabs = input.nextInt();
                         if (nhabs > 2) {
                             System.err.println("Lo sentimos, no puede reservas mas de 2 habitaciones");
                             System.out.print("¿Cuantas habitaciones desea reservar?: ");
                             int n_habs = input.nextInt();
-                            
+
                             System.out.println("Escoga la/las habitacion/es que desea");
                             for (int hab = 0; hab < n_habs; hab++) {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
-                                String piso = input.next();
-                                input.nextLine();
-                                
+                                String piso = input.nextLine();
                                 System.out.print("Seleccione Habitación: ");
-                                input.nextLine();
                                 int habi = input.nextInt();
-                                System.out.print("Seleccione el Paquete para la habitacion(1)premium,2) basico, 3)ninguno): ");
-                                String pack = input.next();
-                                
+                                System.out.print("Seleccione el Paquete para la habitacion(premium, basico, ninguno): ");
+                                String packt = input.next();
+                                if (!packt.equals("premiun") || !packt.equals("basico") || !packt.equals("Premium") || !packt.equals("Basico") || !packt.equals("ninguno") || !packt.equals("Ninguno") || !packt.equals("NONE") || !packt.equals("NULL") || !packt.equals("none") || !packt.equals("null")) {
+                                    System.err.println("No existe un paquete con ese nombre");
+                                    System.out.print("Seleccione el Paquete para la habitacion(premium, basico, ninguno): ");
+                                    
+                                }
+
                             }
 
                             System.out.print("Seleccione los días que desea reservar:");
@@ -186,40 +191,57 @@ public class Menu {
                             if (dias > 7) {
                                 System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
                                 System.out.print("Seleccione los días que desea reservar:");
-                                //Reservacion.ListaReservaciones.add(cliente.getNombre(),cliente.getForma_pago(),"edfghj" , dias,"asdfghj" , 500);
+                                int dia = input.nextInt();
+                                System.out.println("Confirme piso de habitación: ");
+                            String fl = input.next();
+                            System.out.println("Confirme número de habitación: ");
+                            int habit = input.nextInt();
+                            System.out.println("Confirme paquete deseado");
+                            String pack = input.next();
+
                                 //agregar reservacion
-                                System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
+                                System.out.println("-----Su Reserva se ha completado con exito-----");
                                 System.out.print("Su total a pagar es de :");
-                                Reservacion.getListaReservaciones(pago);
+                                System.out.println("$"+total*dias+"\n");
                                 //mostrar precio final
                                 menu_inicio();
                                 int b = input.nextInt();
                                 menus_secundarios(b);
                             } else {
-                                // agregar reservacion
-                            }
-                            System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                                System.out.println("Confirme piso de habitación: ");
+                            String fl = input.next();
+                            System.out.println("Confirme número de habitación: ");
+                            int habit = input.nextInt();
+                            System.out.println("Confirme paquete deseado");
+                            String pack = input.next();
+                            System.out.println("----Su Reserva se ha completado con exito----");
                             System.out.print("Su total a pagar es de :");
-                                //mostrar precio final
-                                menu_inicio();
-                                int b = input.nextInt();
-                                menus_secundarios(b);
+                            System.out.println("$"+total*dias+"\n");
+                            //mostrar precio final                              
+                                
+                                
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
+                            }
                             
-                        }
-                        else
-                        {
-                            
-                           
-                            
+
+                        } else {
                             System.out.println("Escoga la/las habitacion/es que desea");
                             for (int hab = 0; hab < nhabs; hab++) {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
-                                
+                                String piso = input.nextLine();
                                 System.out.print("Seleccione Habitación: ");
-                                //
-                                System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");
-                                //
+                                int habi = input.nextInt();
+                                System.out.print("Seleccione el Paquete para la habitacion(1)premium,2) basico, 3)ninguno): ");
+                                String pack = input.next();
+                                if (!pack.equals("premiun") || !pack.equals("basico") || !pack.equals("Premium") || !pack.equals("Basico") || !pack.equals("ninguno") || !pack.equals("Ninguno") || !pack.equals("NONE") || !pack.equals("NULL") || !pack.equals("none") || !pack.equals("null")) {
+                                    System.err.println("No existe un paquete con ese nombre");
+                                    System.out.print("Seleccione el Paquete para la habitacion(premium, basico, ninguno): ");
+                                    String packt = input.next();
+                                }
+
                             }
 
                             System.out.print("Seleccione los días que desea reservar:");
@@ -227,11 +249,63 @@ public class Menu {
                             if (dias > 7) {
                                 System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
                                 System.out.print("Seleccione los días que desea reservar:");
-                                //Reservacion.setDias(input.nextInt());
-                                
+                                int dia = input.nextInt();
+                                System.out.println("Confirme piso de habitación: ");
+                                String fl = input.next();
+                                System.out.println("Confirme número de habitación: ");
+                                int habit = input.nextInt();
+                                System.out.println("Confirme paquete deseado");
+                                String pack = input.next();
+                                //agregar reservacion
+                                System.out.println("-----Su Reserva se ha completado con exito-----");
+                                System.out.print("Su total a pagar es de :");
+                                System.out.println("$"+total*dias+"\n");
+                                //mostrar precio final
+                                menu_inicio();
+                                int b = input.nextInt();
+                                menus_secundarios(b);
+                            } else {
+                                // agregar reservacion
+                            System.out.println("Confirme piso de habitación: ");
+                            String fl = input.next();
+                            System.out.println("Confirme número de habitación: ");
+                            int habit = input.nextInt();
+                            System.out.println("Confirme paquete deseado");
+                            String pack = input.next();
+                            System.out.println("----Su Reserva se ha completado con exito----");
+                            System.out.print("Su total a pagar es de :");
+                            System.out.println("$"+total*dias+"\n");
+                            //mostrar precio final
+                            menu_inicio();
+                            int b = input.nextInt();
+                            menus_secundarios(b);
+                            }
+                            
+                            /*
+                            System.out.println("Escoga la/las habitacion/es que desea");
+                            for (int hab = 0; hab < nhabs; hab++) {
+                                input.nextLine();
+                                System.out.print("Seleccione piso: ");
+                                String fl = input.next();
+                                System.out.print("Seleccione Habitación: ");
+                                String habi = input.next();
+                                System.out.print("Seleccione el Paquete para la habitacion(premium, basico, ninguno): ");
+                                String pack = input.next();
+                                if (!pack.equals("premium") || !pack.equals("basico") || !pack.equals("Premium") || !pack.equals("Basico") || !pack.equals("ninguno") || !pack.equals("Ninguno") || !pack.equals("NONE") || !pack.equals("NULL") || !pack.equals("none") || !pack.equals("null")) {
+                                    System.err.println("No existe un paquete con ese nombre");
+                                    System.out.print("Seleccione el Paquete para la habitacion(premium, basico, ninguno): ");
+                                    String packt = input.next();
+                                }
+                            }
+
+                            System.out.print("Seleccione los días que desea reservar:");
+                            int dias = input.nextInt();
+                            if (dias > 7) {
+                                System.err.println("Lo Sentimos, no puede reservar mas de 7 dias");
+                                System.out.print("Seleccione los días que desea reservar:");
                                 //agregar reservacion
                                 System.out.println("-----Su Reserva se ha completado con exito-----\n\n");
-                                System.out.print("Su total a pagar es de :");
+                                System.out.print("Su total a pagar es de $");
                                 //mostrar precio final
                                 menu_inicio();
                                 int b = input.nextInt();
@@ -239,12 +313,43 @@ public class Menu {
                             } else {
                                 // agregar reservacion
                             }
-                            System.out.println("----Su Reserva se ha completado con exito----\n\n");
-                            System.out.print("Su total a pagar es de :");
+                            System.out.println("Confirme piso de habitación: ");
+                            String fl = input.next();
+                            System.out.println("Confirme número de habitación: ");
+                            int habit = input.nextInt();
+                            System.out.println("Confirme paquete deseado");
+                            String pack = input.next();
                             //mostrar precio final
+                            if (pack.equals("premium") || pack.equals("Premium")) {
+                                total = total + 150;
+                                ListaReservaciones.add(new Reservacion(nombre, dui, pago,habit, fl, dias, pack, total));
+                                System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                                System.out.print("Su total a pagar es de $");
+                                Reservacion.getListaReservaciones(pago);
+                                System.out.println(total);
+                                System.out.println("\n");
+                                System.out.println("Su ticket:\n");
+                                ListaReservaciones.forEach((e) -> {
+                                    System.out.println(e.mostrarReservacion());
+                                });
+                                }
+                            else if (pack.equals("basico") || pack.equals("Basico")){
+                                total = total+10;
+                                ListaReservaciones.add(new Reservacion(nombre, dui, pago,habit, fl, dias, pack, total));
+                                System.out.println("----Su Reserva se ha completado con exito----\n\n");
+                                System.out.print("Su total a pagar es de :");
+                                Reservacion.getListaReservaciones(pago);
+                                System.out.println(total);
+                                System.out.println("\n");
+                                System.out.println("Su ticket:\n");
+                                ListaReservaciones.forEach((e) -> {
+                                    System.out.println(e.mostrarReservacion());
+                                });
+                                System.out.println("\n");
+                            }
                             menu_inicio();
                             int b = input.nextInt();
-                            menus_secundarios(b);
+                            menus_secundarios(b);*/
                         }
                         break;
                     case 2:
@@ -278,18 +383,19 @@ public class Menu {
                         // eliminar reserva
                         String Busca = input.nextLine();
                         int i = 0;
-                        while (i < Reservaciones.size()) {
-                            if (Busca.equals(Reservaciones.get(i))) {
-                                Reservaciones.remove(i);
+                        while (i < Reservacion.ListaReservaciones.size()) {
+                            if (Busca.equals(Reservacion.ListaReservaciones.get(i))) {
+                                Reservacion.ListaReservaciones.remove(i);
                             }
                             i++;
                         }
                         System.out.println("---Se ha eliminado la reserva---");
                         break;
                     case 4:
-                        Reservaciones.forEach((reservacion) -> {
-                            reservacion.mostrar();
-                        });
+                        //Reservacion.ListaReservaciones.forEach((reservacion) -> {
+                            //reservacion.mostrar();
+                        //});
+                        Reservacion.ListaReservaciones.remove(0);
                         menu_inicio();
                         int xx = input.nextInt();
                         menus_secundarios(xx);
@@ -359,18 +465,18 @@ public class Menu {
                             listaPaquetes.add(new Paquetes("Acceso a la piscina y acceso a internet ilimitado", "Basico", 10));
                             System.out.println("Escriba el nombre del nuevo paquete: ");
                             String nombre = input.next();
-                    {
-                        String name = null;
-                        System.out.println("Escriba los beneficios del paquete "+name+": ");
-                    }
+                             {
+                                String name = null;
+                                System.out.println("Escriba los beneficios del paquete " + name + ": ");
+                            }
                             String saltin = input.nextLine();
                             String benefits = input.nextLine();
                             System.out.println("Escriba su precio: ");
                             int price = input.nextInt();
-                            listaPaquetes.add(new Paquetes(benefits,nombre,price));
+                            listaPaquetes.add(new Paquetes(benefits, nombre, price));
                             System.out.println("--- ¡Paquete añadido exitosamente! ---\n\nPara ver los paquetes existentes pulse 1, si desea volver al menú principal pulse 2: ");
                             int boton = input.nextInt();
-                            if(boton==1){
+                            if (boton == 1) {
                                 listaPaquetes.forEach((e) -> {
                                     System.out.println(e.mostrarLista());
                                 });
@@ -432,7 +538,7 @@ public class Menu {
                                         System.err.println("El dato introducido excede a la cantidad de pisos que posee el edificio actualmente. No se puede completar la acción.");
                                     }
                                     if (Disponibilidad = true) {
-                                        System.out.println("Habitación deshabilitada");
+                                        System.out.println("Piso deshabilitado");
                                     } else {
                                         System.err.println("No se pudo realizar la acción");
                                     }
@@ -443,10 +549,10 @@ public class Menu {
                                     int number = Piso.CantHabitaciones[desp];
                                     boolean Disponibilidad = Piso.Disponible(number);
                                     if (desp > 27) {
-                                        System.err.println("El dato introducido excede a la cantidad de habitaciones que posee éste piso. No se puede completar la acción.");
+                                        System.err.println("El dato introducido excede a la cantidad de pisos que posee el edificio actualmente. No se puede completar la acción.");
                                     }
                                     if (Disponibilidad = false) {
-                                        System.out.println("Habitación habilitada");
+                                        System.out.println("Piso habilitado");
                                     } else {
                                         System.err.println("No se pudo realizar la acción debido a que no existe ningún piso deshabilitado.");
                                     }
