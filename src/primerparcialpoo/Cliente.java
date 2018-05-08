@@ -12,12 +12,12 @@ package primerparcialpoo;
 public class Cliente {
     
     private String Nombre;
-    private String dui;
+    private int dui;
     private String Forma_pago;
     
     public Cliente(){}
     
-    public Cliente (String nombre, String dui, String forma_pago)
+    public Cliente (String nombre, int dui, String forma_pago)
     {
         this.Nombre = nombre;
         this.dui = dui;
@@ -28,15 +28,15 @@ public class Cliente {
         return Nombre;
     }
 
-    public void setNombre(String Nombre) {
+    public void setNombre (String Nombre) {
         this.Nombre = Nombre;
     }
 
-    public String getDui() {
+    public int getDui() {
         return dui;
     }
 
-    public void setDui(String dui) {
+    public void setDui(int dui) {
         this.dui = dui;
     }
 
