@@ -59,7 +59,18 @@ public class Menu {
                 int w = input.nextInt();
                 switch (w) {
                     case 1:
-
+                        Habitacion hotel = new Habitacion();
+                        hotel.AgregarPisoInicial(6);
+                        hotel.AgregarHabitaciones(10);
+                        System.out.println("Gracias por preferir el Hotel Viña Rafinha.\n");
+                        System.out.println("Nuestro hotel se divide por pisos; si lo ve en la lista,¡estará completamente a su disposición!");
+                        hotel.MostrarPisos();
+                        System.out.println("\n");
+                        System.out.println("Ahora le mostraremos las habitaciones que están disponibles por pisos. Ya sabe si lo mira, puede disponer de él.");
+                        hotel.MostrarNumeroHabitacion();
+                        System.out.println("\n");
+                        System.out.println("Ahora lo regresaremos al menú principal para que pueda realizar su reserva, o consultar nuestros precios.");
+                        System.out.println("\n");
                     case 2:
                         menu_inicio();
                         int b = input.nextInt();
@@ -260,9 +271,9 @@ public class Menu {
                         System.out.print("Seleccione el nombre del Cliente: ");
                         // eliminar reserva
                         String Busca = input.nextLine();
-                        int i= 0;
-                        while (i < Reservaciones.size()){
-                            if(Busca.equals(Reservaciones.get(i))){
+                        int i = 0;
+                        while (i < Reservaciones.size()) {
+                            if (Busca.equals(Reservaciones.get(i))) {
                                 Reservaciones.remove(i);
                             }
                             i++;
@@ -299,7 +310,7 @@ public class Menu {
                     System.out.println("2) Agregar Paquete");
                     System.out.println("3) Habilitar o deshabilitar habitación");
                     System.out.println("4) Habilitar o deshabilitar piso");
-                    System.out.println("5) Back");             
+                    System.out.println("5) Back");
                     int z = input.nextInt();
                     Habitacion Piso = new Habitacion();
                     switch (z) {
