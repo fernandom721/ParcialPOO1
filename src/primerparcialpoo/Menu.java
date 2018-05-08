@@ -45,7 +45,10 @@ public class Menu {
         System.out.println("4) Administrar");
         System.out.println("5) Salir");
     }
-
+/**
+ * Unicamente envia la opcion a menus secundarios
+ * @param a 
+ */
     public static void menus_secundarios(int a) {
 
         Scanner input = new Scanner(System.in);
@@ -154,10 +157,9 @@ public class Menu {
                         int dui = input.nextInt();
                         cliente.setDui(dui);
                         System.out.print("Forma de Pago del Cliente(Tarjeta o Efectivo): ");
-                        String saltin = input.nextLine();
                         String pago = input.nextLine();
                         cliente.setForma_pago(pago);
-                        System.out.print("¿Cuantas habitaciones desea sreservar?: ");
+                        System.out.print("¿Cuantas habitaciones desea reservar?: ");
                         int nhabs = input.nextInt();
                         if (nhabs > 2) {
                             System.err.println("Lo sentimos, no puede reservas mas de 2 habitaciones");
@@ -169,7 +171,10 @@ public class Menu {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
                                 String piso = input.next();
+                                input.nextLine();
+                                
                                 System.out.print("Seleccione Habitación: ");
+                                input.nextLine();
                                 int habi = input.nextInt();
                                 System.out.print("Seleccione el Paquete para la habitacion(1)premium,2) basico, 3)ninguno): ");
                                 String pack = input.next();
@@ -210,7 +215,7 @@ public class Menu {
                             for (int hab = 0; hab < nhabs; hab++) {
                                 input.nextLine();
                                 System.out.print("Seleccione piso: ");
-                                //
+                                
                                 System.out.print("Seleccione Habitación: ");
                                 //
                                 System.out.print("Seleccione el Paquete para la habitacion(premiun, basico, ninguno): ");

@@ -31,7 +31,10 @@ public class Reservacion {
     public Cliente getCliente() {
         return Cliente;
     }
-
+    /**
+     * 
+     * @param Cliente 
+     */
     public void setCliente(Cliente Cliente) {
         this.Cliente = Cliente;
     }
@@ -39,7 +42,10 @@ public class Reservacion {
     public String getInf_huesped() {
         return Inf_huesped;
     }
-
+    /**
+     * Recibe la informacion del huesped
+     * @param Inf_huesped 
+     */
     public void setInf_huesped(String Inf_huesped) {
         this.Inf_huesped = Inf_huesped;
     }
@@ -51,7 +57,15 @@ public class Reservacion {
     public void setPaquete(String paquete) {
         this.paquete = paquete;
     }
-    
+    /**
+     * Recibe los datos del cliente que desea hacer una reservacion
+     * @param cliente
+     * @param formapago
+     * @param habitaciones
+     * @param dias
+     * @param paquete
+     * @param pago 
+     */
     public Reservacion (String cliente, String formapago, String habitaciones, int dias, String paquete ,int pago)
     {
         this.Cliente.getNombre();

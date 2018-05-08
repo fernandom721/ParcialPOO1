@@ -16,7 +16,12 @@ public class Cliente {
     private String Forma_pago;
     
     public Cliente(){}
-    
+    /**
+     * Recibe los datos del cliente
+     * @param nombre
+     * @param dui
+     * @param forma_pago 
+     */
     public Cliente (String nombre, int dui, String forma_pago)
     {
         this.Nombre = nombre;
@@ -27,7 +32,10 @@ public class Cliente {
     public String getNombre() {
         return Nombre;
     }
-
+    /**
+     * Recibe el nombre del cliente
+     * @param Nombre 
+     */
     public void setNombre (String Nombre) {
         this.Nombre = Nombre;
     }
@@ -35,7 +43,10 @@ public class Cliente {
     public int getDui() {
         return dui;
     }
-
+    /**
+     * Recibe el dui del cliente
+     * @param dui 
+     */
     public void setDui(int dui) {
         this.dui = dui;
     }
@@ -43,11 +54,14 @@ public class Cliente {
     public String getForma_pago() {
         return Forma_pago;
     }
-
+    /**
+     * Recibe unicamente la forma de pago del cliente
+     * @param Forma_pago  
+     */
     public void setForma_pago(String Forma_pago) {
         this.Forma_pago = Forma_pago;
     }
-    
+   
     
 }
 
