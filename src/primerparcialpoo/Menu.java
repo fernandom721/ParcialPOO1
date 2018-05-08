@@ -153,7 +153,7 @@ public class Menu {
                 {
                     case 1:
                        
- 
+                        /*
                         Scanner leer = new Scanner(System.in);
                         ControlReservas reserva[] = new ControlReservas[10];
                         ControlReservas datosT[] = new ControlReservas[10];
@@ -221,7 +221,7 @@ public class Menu {
                             datosT[i] = new ControlReservas(nombreT,fecha);
                             Piso[i] = new Pisos(nivel);
                         }
-                        /**
+                        */
                         Scanner teclado=new Scanner(System.in);
                         String dui;
                         System.out.print("Ingrese nombre de Cliente: ");
@@ -235,8 +235,7 @@ public class Menu {
                         Cliente cliente = new Cliente();
                         cliente.setDui(dui);
                         cliente.setForma_pago(pago);
-                        cliente.setNomb
-                        * re(nombre);
+                        cliente.setNombre(nombre);
                         System.out.print("¿Cuantas habitaciones desea sreservar?: ");
                         int nhabs = input.nextInt();
                         if (nhabs >2)
@@ -319,7 +318,7 @@ public class Menu {
                             int b = input.nextInt();
                             menus_secundarios(b);
                         }
-                        break;*/
+                        break;
                     case 2:
                         System.out.println("¿Que reserva desea modificar?");
                         System.out.print("Ingrese el nombre del Cliente: ");
